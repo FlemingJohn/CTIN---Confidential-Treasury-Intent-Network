@@ -91,9 +91,11 @@ frontend/source/shared       Shared components, domain types, and state
 ### Contracts structure
 
 ```
-contracts/contracts/core        Confidential intent network and disclosure registry
+contracts/contracts/core        Intent network, disclosure registry, and safe module
 contracts/contracts/adapters    Uniswap execution adapter
 contracts/contracts/interfaces  Shared interfaces
+contracts/contracts/mocks       Mock safe and token for tests
+contracts/test                  Contract tests
 contracts/scripts               Deployment scripts
 ```
 
