@@ -1,0 +1,37 @@
+architecture-beta
+    group stack[Tech Stack]
+        service nextjs(logos:nextjs-icon)[Next js] in stack
+        service react(logos:react)[React] in stack
+        service typescript(logos:typescript-icon)[TypeScript] in stack
+        service tailwind(logos:tailwindcss-icon)[Tailwind] in stack
+        service solidity(logos:solidity)[Solidity] in stack
+        service vercel(logos:vercel-icon)[Vercel] in stack
+
+    nextjs:R -- L:react
+    react:R -- L:typescript
+    typescript:R -- L:tailwind
+    tailwind:R -- L:solidity
+    solidity:R -- L:vercel
+
+    group offchain(logos:vercel-icon)[Off chain]
+        service consoles(logos:nextjs-icon)[CTIN Consoles] in offchain
+        service wallet(logos:metamask-icon)[Wallet] in offchain
+        service runner(logos:nodejs-icon)[TEE Runner] in offchain
+
+    group onchain(logos:ethereum)[Ethereum Sepolia]
+        service safe(logos:ethereum)[Safe] in onchain
+        service module(logos:solidity)[Safe Module] in onchain
+        service intents(logos:solidity)[Intent Network Nox] in onchain
+        service disclosure(logos:solidity)[Disclosure Registry] in onchain
+        service adapter(logos:solidity)[Uniswap Adapter] in onchain
+        service uniswap(logos:ethereum)[Uniswap v3] in onchain
+
+    consoles:R --> L:wallet
+    consoles:B --> T:intents
+    wallet:B --> T:safe
+    safe:R --> L:module
+    module:R --> L:intents
+    intents:R --> L:disclosure
+    intents:B --> T:runner
+    runner:B --> T:adapter
+    adapter:R --> L:uniswap
