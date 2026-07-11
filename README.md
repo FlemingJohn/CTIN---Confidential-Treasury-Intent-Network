@@ -51,52 +51,11 @@ Institution C: Buy  100 ETH   ────────────────�
 ## Architecture
 
 The flow runs from the treasury signer through the browser and frontend to the wallet, then
-into the confidential contracts and on to execution. The source is at
-[`assets/architecture.mmd`](./assets/architecture.mmd).
+into the confidential contracts and on to execution.
 
-```mermaid
-architecture-beta
-    group stack[Tech Stack]
-        service nextjs(logos:nextjs-icon)[Next js] in stack
-        service react(logos:react)[React] in stack
-        service typescript(logos:typescript-icon)[TypeScript] in stack
-        service tailwind(logos:tailwindcss-icon)[Tailwind] in stack
-        service solidity(logos:solidity)[Solidity] in stack
-        service vercel(logos:vercel-icon)[Vercel] in stack
-
-    nextjs:R -- L:react
-    react:R -- L:typescript
-    typescript:R -- L:tailwind
-    tailwind:R -- L:solidity
-    solidity:R -- L:vercel
-
-    group offchain(logos:vercel-icon)[Off chain]
-        service user(mdi:account-tie)[Treasury Signer] in offchain
-        service browser(logos:chrome)[Browser] in offchain
-        service consoles(logos:nextjs-icon)[CTIN Frontend] in offchain
-        service wallet(logos:metamask-icon)[Wallet] in offchain
-        service runner(logos:nodejs-icon)[TEE Runner] in offchain
-
-    group onchain(logos:ethereum)[Ethereum Sepolia]
-        service safe(logos:ethereum)[Safe] in onchain
-        service module(logos:solidity)[Safe Module] in onchain
-        service intents(logos:solidity)[Intent Network Nox] in onchain
-        service disclosure(logos:solidity)[Disclosure Registry] in onchain
-        service adapter(logos:solidity)[Uniswap Adapter] in onchain
-        service uniswap(logos:ethereum)[Uniswap v3] in onchain
-
-    user:R --> L:browser
-    browser:R --> L:consoles
-    consoles:R --> L:wallet
-    consoles:B --> T:intents
-    wallet:B --> T:safe
-    safe:R --> L:module
-    module:R --> L:intents
-    intents:R --> L:disclosure
-    intents:B --> T:runner
-    runner:B --> T:adapter
-    adapter:R --> L:uniswap
-```
+<p align="center">
+  <img src="./assets/architecture.svg" alt="CTIN architecture and flow" width="100%" />
+</p>
 
 Text view of the confidential execution flow:
 
