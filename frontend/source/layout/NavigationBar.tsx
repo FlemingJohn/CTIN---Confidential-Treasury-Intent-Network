@@ -1,3 +1,5 @@
+'use client';
+
 import { BrandMark } from '@/source/layout/BrandMark';
 import { NavigationLink } from '@/source/layout/NavigationLink';
 import { WalletConnectButton } from '@/source/layout/WalletConnectButton';
