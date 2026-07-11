@@ -4,7 +4,8 @@ import * as dotenv from 'dotenv';
 
 dotenv.config();
 
-const sepoliaRpcUrl = process.env.SEPOLIA_RPC_URL ?? 'https://rpc.sepolia.org';
+const sepoliaRpcUrl =
+  process.env.SEPOLIA_RPC_URL ?? 'https://ethereum-sepolia-rpc.publicnode.com';
 const rawDeployerPrivateKey = process.env.DEPLOYER_PRIVATE_KEY ?? '';
 const deployerPrivateKey = rawDeployerPrivateKey
   ? rawDeployerPrivateKey.startsWith('0x')
