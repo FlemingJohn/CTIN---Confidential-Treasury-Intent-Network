@@ -5,7 +5,12 @@ import * as dotenv from 'dotenv';
 dotenv.config();
 
 const sepoliaRpcUrl = process.env.SEPOLIA_RPC_URL ?? 'https://rpc.sepolia.org';
-const deployerPrivateKey = process.env.DEPLOYER_PRIVATE_KEY ?? '';
+const rawDeployerPrivateKey = process.env.DEPLOYER_PRIVATE_KEY ?? '';
+const deployerPrivateKey = rawDeployerPrivateKey
+  ? rawDeployerPrivateKey.startsWith('0x')
+    ? rawDeployerPrivateKey
+    : `0x${rawDeployerPrivateKey}`
+  : '';
 
 const hardhatConfiguration: HardhatUserConfig = {
   solidity: {
