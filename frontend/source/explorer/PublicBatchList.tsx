@@ -1,12 +1,12 @@
 'use client';
 
-import { useTreasuryStore } from '@/source/shared/treasuryStore';
 import { SurfacePanel } from '@/source/shared/SurfacePanel';
 import { StatusBadge } from '@/source/shared/StatusBadge';
 import { EmptyState } from '@/source/shared/EmptyState';
+import { useTreasuryBatches } from '@/source/shared/useTreasuryBatches';
 
 export function PublicBatchList() {
-  const batches = useTreasuryStore((state) => state.batches);
+  const { batches } = useTreasuryBatches();
 
   if (batches.length === 0) {
     return (
