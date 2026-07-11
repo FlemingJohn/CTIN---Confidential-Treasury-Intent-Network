@@ -2,12 +2,13 @@
 
 import { useState } from 'react';
 import { parseUnits } from 'viem';
-import { useWriteContract } from 'wagmi';
+import { useAccount, useWriteContract } from 'wagmi';
 import { useHandleClient } from '@/source/confidential/useHandleClient';
 import { assetDecimals } from '@/source/confidential/assetDecimals';
 import { intentNetworkAbi } from '@/source/contracts/intentNetworkAbi';
 import { intentNetworkAddress } from '@/source/contracts/contractAddresses';
 import { IntentDirection, SupportedAsset } from '@/source/shared/treasuryDomain';
+import { recordSubmittedIntent } from '@/source/institution/submittedIntentsStore';
 
 interface SubmitIntentArguments {
   batchId: bigint;
@@ -18,6 +19,7 @@ interface SubmitIntentArguments {
 
 export function useSubmitIntent() {
   const handleClient = useHandleClient();
+  const { address } = useAccount();
   const { writeContractAsync } = useWriteContract();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -48,6 +50,17 @@ export function useSubmitIntent() {
         functionName: 'submitIntent',
         args: [batchId, handle, handleProof, direction === 'buy'],
       });
+
+      if (address) {
+        recordSubmittedIntent(address, {
+          batchId: batchId.toString(),
+          direction,
+          asset,
+          handle,
+          transactionHash: hash,
+          submittedAtIso: new Date().toISOString(),
+        });
+      }
 
       setTransactionHash(hash);
       return hash;
