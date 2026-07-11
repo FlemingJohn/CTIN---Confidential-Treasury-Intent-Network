@@ -50,6 +50,9 @@ Institution C: Buy  100 ETH   ────────────────�
 
 ## Architecture
 
+An icon based flow diagram is available at [`assets/architecture.mmd`](./assets/architecture.mmd),
+rendered with Mermaid and the logos icon pack.
+
 ```
 Institution A Safe   Institution B Safe   Institution C Safe        (unmodified)
         \                  |                  /
