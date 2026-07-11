@@ -1,0 +1,89 @@
+<svg width="1200" height="380" viewBox="0 0 1200 380" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="CTIN — Confidential Treasury Intent Network">
+  <defs>
+    <linearGradient id="obsidian" x1="0" y1="0" x2="0" y2="380" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0b0b0d"/>
+      <stop offset="1" stop-color="#050505"/>
+    </linearGradient>
+    <radialGradient id="emberGlow" cx="0.5" cy="1.15" r="0.85">
+      <stop offset="0" stop-color="#ff6b1a" stop-opacity="0.55"/>
+      <stop offset="0.45" stop-color="#e11d2a" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#050505" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="magmaText" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd7a8"/>
+      <stop offset="0.5" stop-color="#ff6b1a"/>
+      <stop offset="1" stop-color="#e11d2a"/>
+    </linearGradient>
+    <linearGradient id="fissure" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#e11d2a" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#ff6b1a" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#ffd7a8" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="softGlow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="380" fill="url(#obsidian)"/>
+  <rect width="1200" height="380" fill="url(#emberGlow)"/>
+
+  <g stroke="#1a1a1f" stroke-width="1" opacity="0.6">
+    <line x1="0" y1="76" x2="1200" y2="76"/>
+    <line x1="0" y1="152" x2="1200" y2="152"/>
+    <line x1="0" y1="228" x2="1200" y2="228"/>
+    <line x1="0" y1="304" x2="1200" y2="304"/>
+    <line x1="200" y1="0" x2="200" y2="380"/>
+    <line x1="500" y1="0" x2="500" y2="380"/>
+    <line x1="800" y1="0" x2="800" y2="380"/>
+    <line x1="1000" y1="0" x2="1000" y2="380"/>
+  </g>
+
+  <g filter="url(#softGlow)" opacity="0.85">
+    <path d="M60 300 L240 292 L360 316 L520 300 L700 322 L900 298 L1140 312" stroke="url(#fissure)" stroke-width="2.5" fill="none"/>
+    <path d="M80 344 L300 336 L470 352 L680 338 L880 356 L1120 342" stroke="url(#fissure)" stroke-width="1.5" fill="none" opacity="0.7"/>
+  </g>
+
+  <g fill="#ff6b1a">
+    <circle cx="150" cy="120" r="1.6" opacity="0.8"/>
+    <circle cx="1040" cy="90" r="1.4" opacity="0.7"/>
+    <circle cx="980" cy="240" r="1.8" opacity="0.6"/>
+    <circle cx="260" cy="210" r="1.3" opacity="0.7"/>
+    <circle cx="620" cy="70" r="1.5" opacity="0.6"/>
+    <circle cx="880" cy="150" r="1.2" opacity="0.8"/>
+    <circle cx="420" cy="130" r="1.3" opacity="0.5"/>
+  </g>
+  <g fill="#ffd7a8">
+    <circle cx="720" cy="110" r="1.4" opacity="0.9"/>
+    <circle cx="330" cy="90" r="1.2" opacity="0.8"/>
+    <circle cx="1090" cy="180" r="1.3" opacity="0.7"/>
+  </g>
+
+  <text x="72" y="150" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="118" font-weight="800" letter-spacing="4" fill="url(#magmaText)" filter="url(#softGlow)">CTIN</text>
+
+  <text x="78" y="200" font-family="'Consolas', 'SFMono-Regular', monospace" font-size="26" letter-spacing="6" fill="#f5f5f4">CONFIDENTIAL TREASURY INTENT NETWORK</text>
+
+  <text x="78" y="238" font-family="'Consolas', 'SFMono-Regular', monospace" font-size="16" letter-spacing="1" fill="#8a8a92">The confidential execution layer for institutional treasuries.</text>
+
+  <g font-family="'Consolas', 'SFMono-Regular', monospace" font-size="13" letter-spacing="1">
+    <g>
+      <rect x="78" y="262" width="150" height="30" rx="2" fill="#ff6b1a" fill-opacity="0.08" stroke="#ff6b1a" stroke-opacity="0.35"/>
+      <text x="94" y="282" fill="#ff6b1a">Ethereum Sepolia</text>
+    </g>
+    <g>
+      <rect x="240" y="262" width="78" height="30" rx="2" fill="#ff6b1a" fill-opacity="0.08" stroke="#ff6b1a" stroke-opacity="0.35"/>
+      <text x="256" y="282" fill="#ff6b1a">Nox FHE</text>
+    </g>
+    <g>
+      <rect x="330" y="262" width="70" height="30" rx="2" fill="#ff6b1a" fill-opacity="0.08" stroke="#ff6b1a" stroke-opacity="0.35"/>
+      <text x="346" y="282" fill="#ff6b1a">Safe</text>
+    </g>
+    <g>
+      <rect x="412" y="262" width="92" height="30" rx="2" fill="#ff6b1a" fill-opacity="0.08" stroke="#ff6b1a" stroke-opacity="0.35"/>
+      <text x="428" y="282" fill="#ff6b1a">Uniswap</text>
+    </g>
+  </g>
+</svg>
