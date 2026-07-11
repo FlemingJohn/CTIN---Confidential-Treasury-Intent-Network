@@ -9,7 +9,7 @@ const deployerPrivateKey = process.env.DEPLOYER_PRIVATE_KEY ?? '';
 
 const hardhatConfiguration: HardhatUserConfig = {
   solidity: {
-    version: '0.8.27',
+    version: '0.8.35',
     settings: {
       optimizer: {
         enabled: true,
