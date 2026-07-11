@@ -14,6 +14,6 @@
     "dotenv": "^16.4.5"
   },
   "dependencies": {
-    "@iexec-nox/nox-protocol-contracts": "latest"
+    "@iexec-nox/nox-protocol-contracts": "0.2.4"
   }
 }
