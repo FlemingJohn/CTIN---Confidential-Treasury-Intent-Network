@@ -37,6 +37,13 @@ export const intentNetworkAbi = [
   },
   {
     type: 'function',
+    name: 'networkOperator',
+    stateMutability: 'view',
+    inputs: [],
+    outputs: [{ name: '', type: 'address' }],
+  },
+  {
+    type: 'function',
     name: 'batchStatusOf',
     stateMutability: 'view',
     inputs: [{ name: 'batchId', type: 'uint256' }],
