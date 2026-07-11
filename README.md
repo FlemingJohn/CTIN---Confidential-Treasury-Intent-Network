@@ -109,7 +109,7 @@ contracts/scripts               Deployment scripts
 | Wallet | wagmi, viem, RainbowKit |
 | State | Zustand |
 | Confidential compute | Nox confidential smart contracts (FHE + TEE) |
-| Contracts | Solidity 0.8.27, Hardhat |
+| Contracts | Solidity 0.8.35, Hardhat |
 | Integrated protocols | Safe, Uniswap v3 (both unmodified) |
 | Network | Ethereum Sepolia |
 | Deployment | Vercel |
