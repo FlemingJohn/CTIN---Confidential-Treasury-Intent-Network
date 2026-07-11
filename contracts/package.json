@@ -1,0 +1,19 @@
+{
+  "name": "ctin-contracts",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "deploy:sepolia": "hardhat run scripts/deployToSepolia.ts --network sepolia"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "hardhat": "^2.22.0",
+    "typescript": "~5.8.2",
+    "dotenv": "^16.4.5"
+  },
+  "dependencies": {
+    "@iexec-nox/nox-protocol-contracts": "latest"
+  }
+}
