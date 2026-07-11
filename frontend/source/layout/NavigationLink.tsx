@@ -17,7 +17,7 @@ export function NavigationLink({ destination }: { destination: NavigationDestina
         'flex items-center gap-2 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] transition-colors',
         isActive
           ? 'border-b-2 border-magma-ember bg-white/5 text-magma-ember'
-          : 'text-obsidian-border/0 text-neutral-500 hover:bg-white/5 hover:text-neutral-200'
+          : 'text-neutral-300 hover:bg-white/5 hover:text-white'
       )}
     >
       <Icon size={16} />
