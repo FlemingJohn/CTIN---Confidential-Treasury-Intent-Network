@@ -168,3 +168,18 @@ DEPLOYER_PRIVATE_KEY
 ## Networks
 
 All contracts and the application run on Ethereum Sepolia.
+
+## Deployed contracts (Ethereum Sepolia)
+
+| Contract | Address |
+| --- | --- |
+| ConfidentialIntentNetwork | [0x48aA7297B46b6d9671bfdf59421ba7Ae6c947fC6](https://sepolia.etherscan.io/address/0x48aA7297B46b6d9671bfdf59421ba7Ae6c947fC6) |
+| DisclosureRegistry | [0xAC9e3742FbD2e762b72E7E7d1229328789B8dcD9](https://sepolia.etherscan.io/address/0xAC9e3742FbD2e762b72E7E7d1229328789B8dcD9) |
+| TreasurySafeModule | [0x9DceEdd24A4780067d06D48E10Aa9c2D29275611](https://sepolia.etherscan.io/address/0x9DceEdd24A4780067d06D48E10Aa9c2D29275611) |
+
+Open a new batch so institutions can submit intents:
+
+```
+cd contracts
+INTENT_NETWORK_ADDRESS=0x48aA7297B46b6d9671bfdf59421ba7Ae6c947fC6 npm run open-batch:sepolia
+```
