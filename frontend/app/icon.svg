@@ -1,0 +1,17 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="iconObsidian" x1="0" y1="0" x2="0" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#111114"/>
+      <stop offset="1" stop-color="#050505"/>
+    </linearGradient>
+    <linearGradient id="iconFlame" x1="20" y1="8" x2="44" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffd7a8"/>
+      <stop offset="0.5" stop-color="#ff6b1a"/>
+      <stop offset="1" stop-color="#e11d2a"/>
+    </linearGradient>
+  </defs>
+  <rect x="1.5" y="1.5" width="61" height="61" rx="14" fill="url(#iconObsidian)" stroke="#ff6b1a" stroke-opacity="0.45" stroke-width="1.5"/>
+  <g transform="translate(11 8) scale(1.85)">
+    <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z" fill="url(#iconFlame)"/>
+  </g>
+</svg>
