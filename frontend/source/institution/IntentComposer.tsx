@@ -4,20 +4,33 @@ import { useState } from 'react';
 import { useAccount } from 'wagmi';
 import { SurfacePanel } from '@/source/shared/SurfacePanel';
 import { ActionButton } from '@/source/shared/ActionButton';
-import {
-  IntentDirection,
-  SupportedAsset,
-} from '@/source/shared/treasuryDomain';
+import { IntentDirection, SupportedAsset } from '@/source/shared/treasuryDomain';
+import { useSubmitIntent } from '@/source/institution/useSubmitIntent';
+import { useTreasuryBatches } from '@/source/shared/useTreasuryBatches';
 
 const assetOptions: SupportedAsset[] = ['ETH', 'USDC'];
 
 export function IntentComposer() {
   const { address, isConnected } = useAccount();
+  const { openBatchId, refresh } = useTreasuryBatches();
+  const { submitIntent, isSubmitting, errorMessage, transactionHash } = useSubmitIntent();
+
   const [direction, setDirection] = useState<IntentDirection>('buy');
   const [asset, setAsset] = useState<SupportedAsset>('ETH');
   const [amount, setAmount] = useState('');
 
-  const isSubmitEnabled = isConnected && amount.trim().length > 0;
+  const hasOpenBatch = openBatchId !== null;
+  const isSubmitEnabled =
+    isConnected && hasOpenBatch && amount.trim().length > 0 && !isSubmitting;
+
+  const handleSubmit = async () => {
+    if (openBatchId === null) {
+      return;
+    }
+    await submitIntent({ batchId: openBatchId, amount, asset, direction });
+    setAmount('');
+    await refresh();
+  };
 
   return (
     <SurfacePanel className="p-6">
@@ -84,13 +97,31 @@ export function IntentComposer() {
           />
         </div>
 
-        <ActionButton variant="primary" disabled={!isSubmitEnabled}>
-          {isConnected ? 'Encrypt and submit intent' : 'Connect wallet to submit'}
+        <ActionButton variant="primary" disabled={!isSubmitEnabled} onClick={handleSubmit}>
+          {isSubmitting ? 'Encrypting and submitting' : 'Encrypt and submit intent'}
         </ActionButton>
 
-        {isConnected ? (
+        {!isConnected ? (
           <span className="font-mono text-[11px] text-neutral-500">
-            Submitting as {address}
+            Connect a wallet to submit an intent
+          </span>
+        ) : null}
+        {isConnected && !hasOpenBatch ? (
+          <span className="font-mono text-[11px] text-signal-pending">
+            No open batch is available yet
+          </span>
+        ) : null}
+        {isConnected && hasOpenBatch ? (
+          <span className="font-mono text-[11px] text-neutral-500">
+            Submitting as {address} into batch {openBatchId?.toString()}
+          </span>
+        ) : null}
+        {errorMessage ? (
+          <span className="font-mono text-[11px] text-signal-reverted">{errorMessage}</span>
+        ) : null}
+        {transactionHash ? (
+          <span className="font-mono text-[11px] text-signal-settled">
+            Submitted in transaction {transactionHash}
           </span>
         ) : null}
       </div>
