@@ -2,6 +2,7 @@ import { PageShell } from '@/source/layout/PageShell';
 import { SectionHeading } from '@/source/shared/SectionHeading';
 import { IntentComposer } from '@/source/institution/IntentComposer';
 import { InstitutionBatchList } from '@/source/institution/InstitutionBatchList';
+import { MyIntents } from '@/source/institution/MyIntents';
 
 export function InstitutionConsole() {
   return (
@@ -16,6 +17,15 @@ export function InstitutionConsole() {
         <div className="flex flex-col gap-4">
           <InstitutionBatchList />
         </div>
+      </div>
+
+      <div className="mt-12">
+        <SectionHeading
+          overline="Your confidential intents"
+          title="Decrypt what only you can read."
+          description="Each submitted amount is encrypted on-chain. You can decrypt your own figures here through the Nox access control list."
+        />
+        <MyIntents />
       </div>
     </PageShell>
   );
