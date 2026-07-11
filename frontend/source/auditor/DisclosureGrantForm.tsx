@@ -4,26 +4,31 @@ import { useState } from 'react';
 import { useAccount } from 'wagmi';
 import { SurfacePanel } from '@/source/shared/SurfacePanel';
 import { ActionButton } from '@/source/shared/ActionButton';
-import { useTreasuryStore } from '@/source/shared/treasuryStore';
+import { useDisclosureGrants } from '@/source/auditor/useDisclosureGrants';
 
 export function DisclosureGrantForm() {
-  const { address, isConnected } = useAccount();
-  const addDisclosureGrant = useTreasuryStore((state) => state.addDisclosureGrant);
+  const { isConnected } = useAccount();
+  const { grantDisclosure, refresh } = useDisclosureGrants();
   const [auditorAddress, setAuditorAddress] = useState('');
+  const [isGranting, setIsGranting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-  const isGrantEnabled = isConnected && auditorAddress.trim().length > 0;
+  const isGrantEnabled = isConnected && auditorAddress.trim().length > 0 && !isGranting;
 
-  const handleGrant = () => {
-    if (!address) {
-      return;
+  const handleGrant = async () => {
+    setIsGranting(true);
+    setErrorMessage(null);
+    try {
+      await grantDisclosure(auditorAddress.trim());
+      setAuditorAddress('');
+      await refresh();
+    } catch (grantError) {
+      setErrorMessage(
+        grantError instanceof Error ? grantError.message : 'Failed to grant disclosure'
+      );
+    } finally {
+      setIsGranting(false);
     }
-    addDisclosureGrant({
-      grantId: `${address}-${auditorAddress}-${Date.now()}`,
-      institutionAddress: address,
-      auditorAddress: auditorAddress.trim(),
-      createdAtIso: new Date().toISOString(),
-    });
-    setAuditorAddress('');
   };
 
   return (
@@ -41,8 +46,16 @@ export function DisclosureGrantForm() {
           className="border border-obsidian-border bg-obsidian-raised px-4 py-3 font-mono text-sm text-white outline-none focus:border-magma-ember"
         />
         <ActionButton variant="primary" disabled={!isGrantEnabled} onClick={handleGrant}>
-          {isConnected ? 'Grant disclosure' : 'Connect wallet to grant'}
+          {isGranting ? 'Granting disclosure' : 'Grant disclosure'}
         </ActionButton>
+        {!isConnected ? (
+          <span className="font-mono text-[11px] text-neutral-500">
+            Connect a wallet to grant disclosure
+          </span>
+        ) : null}
+        {errorMessage ? (
+          <span className="font-mono text-[11px] text-signal-reverted">{errorMessage}</span>
+        ) : null}
       </div>
     </SurfacePanel>
   );
