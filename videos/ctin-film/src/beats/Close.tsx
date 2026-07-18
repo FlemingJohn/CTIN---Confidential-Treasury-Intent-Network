@@ -70,6 +70,17 @@ export const Close = ({ beat }: { beat: FilmBeat }) => {
             </div>
           ))}
         </div>
+        <div
+          style={{
+            fontFamily: monoFont,
+            fontSize: 24,
+            letterSpacing: 4,
+            color: colors.textMuted,
+            opacity: tagsOpacity,
+          }}
+        >
+          Built by Fleming John
+        </div>
       </div>
     </SceneShell>
   );
