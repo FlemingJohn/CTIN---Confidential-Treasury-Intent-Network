@@ -44,6 +44,8 @@ const tailPadSeconds: Record<string, number> = {
   solution: 0.7,
   architecture: 0.7,
   proof: 0.8,
+  novelty: 0.8,
+  usecases: 0.8,
   close: 1.2,
 };
 
