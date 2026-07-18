@@ -1,14 +1,31 @@
-import { OffthreadVideo, staticFile, useCurrentFrame } from "remotion";
-import { SceneShell } from "../components/SceneShell";
-import { FilmBeat } from "../timing";
+import {
+  AbsoluteFill,
+  Sequence,
+  Audio,
+  OffthreadVideo,
+  staticFile,
+  useCurrentFrame,
+  interpolate,
+} from "remotion";
+import { Captions } from "../components/Captions";
+import { FilmBeat, demoSteps } from "../timing";
 import { colors, monoFont } from "../theme";
 
 export const Demo = ({ beat }: { beat: FilmBeat }) => {
   const frame = useCurrentFrame();
   const dotOpacity = 0.4 + 0.6 * (0.5 + 0.5 * Math.sin(frame * 0.2));
+  const fadeIn = interpolate(frame, [0, 12], [0, 1], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
+  const fadeOut = interpolate(frame, [beat.frames - 14, beat.frames], [1, 0], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
+  const opacity = Math.min(fadeIn, fadeOut);
 
   return (
-    <SceneShell beat={beat}>
+    <AbsoluteFill style={{ opacity }}>
       <div style={{ position: "relative", width: "100%", height: "100%" }}>
         <div
           style={{
@@ -58,6 +75,18 @@ export const Demo = ({ beat }: { beat: FilmBeat }) => {
           </span>
         </div>
       </div>
-    </SceneShell>
+
+      {demoSteps.map((step) => (
+        <Sequence
+          key={step.id}
+          from={step.startFrame}
+          durationInFrames={step.durationFrames}
+          name={step.id}
+        >
+          <Audio src={staticFile(`audio/demo-${step.id}.mp3`)} />
+          <Captions words={step.words} />
+        </Sequence>
+      ))}
+    </AbsoluteFill>
   );
 };
