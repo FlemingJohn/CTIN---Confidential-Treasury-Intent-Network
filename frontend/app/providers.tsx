@@ -7,6 +7,8 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { RainbowKitProvider, darkTheme } from '@rainbow-me/rainbowkit';
 import { walletConnectionConfig } from '@/source/wallet/walletConnectionConfig';
 import { themeColors } from '@/source/design/themeColors';
+import { ToastProvider } from '@/source/notifications/ToastProvider';
+import { ErrorBoundary } from '@/source/shared/ErrorBoundary';
 
 const queryClient = new QueryClient();
 
@@ -22,7 +24,9 @@ export function ApplicationProviders({ children }: { children: ReactNode }) {
             fontStack: 'system',
           })}
         >
-          {children}
+          <ErrorBoundary>
+            <ToastProvider>{children}</ToastProvider>
+          </ErrorBoundary>
         </RainbowKitProvider>
       </QueryClientProvider>
     </WagmiProvider>
