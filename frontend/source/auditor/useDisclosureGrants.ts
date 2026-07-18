@@ -7,6 +7,7 @@ import {
   deploymentStartBlock,
   disclosureRegistryAddress,
 } from '@/source/contracts/contractAddresses';
+import { useTransactionRunner, sepoliaTransactionUrl } from '@/source/shared/useTransactionRunner';
 
 export interface ActiveDisclosureGrant {
   auditorAddress: string;
@@ -16,6 +17,7 @@ export function useDisclosureGrants() {
   const { address } = useAccount();
   const publicClient = usePublicClient();
   const { writeContractAsync } = useWriteContract();
+  const { run } = useTransactionRunner();
   const [grants, setGrants] = useState<ActiveDisclosureGrant[]>([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -66,29 +68,41 @@ export function useDisclosureGrants() {
     loadGrants();
   }, [loadGrants]);
 
-  const grantDisclosure = async (auditorAddress: string) => {
-    if (!disclosureRegistryAddress) {
-      throw new Error('Disclosure registry contract address is not configured');
-    }
-    return writeContractAsync({
-      address: disclosureRegistryAddress,
-      abi: disclosureRegistryAbi,
-      functionName: 'grantDisclosure',
-      args: [auditorAddress as `0x${string}`],
+  const grantDisclosure = async (auditorAddress: string) =>
+    run({
+      pending: 'Granting auditor disclosure',
+      success: 'Auditor disclosure granted',
+      linkFromResult: (value: `0x${string}`) => sepoliaTransactionUrl(value),
+      action: async () => {
+        if (!disclosureRegistryAddress) {
+          throw new Error('Disclosure registry contract address is not configured');
+        }
+        return writeContractAsync({
+          address: disclosureRegistryAddress,
+          abi: disclosureRegistryAbi,
+          functionName: 'grantDisclosure',
+          args: [auditorAddress as `0x${string}`],
+        });
+      },
     });
-  };
 
-  const revokeDisclosure = async (auditorAddress: string) => {
-    if (!disclosureRegistryAddress) {
-      throw new Error('Disclosure registry contract address is not configured');
-    }
-    return writeContractAsync({
-      address: disclosureRegistryAddress,
-      abi: disclosureRegistryAbi,
-      functionName: 'revokeDisclosure',
-      args: [auditorAddress as `0x${string}`],
+  const revokeDisclosure = async (auditorAddress: string) =>
+    run({
+      pending: 'Revoking auditor disclosure',
+      success: 'Auditor disclosure revoked',
+      linkFromResult: (value: `0x${string}`) => sepoliaTransactionUrl(value),
+      action: async () => {
+        if (!disclosureRegistryAddress) {
+          throw new Error('Disclosure registry contract address is not configured');
+        }
+        return writeContractAsync({
+          address: disclosureRegistryAddress,
+          abi: disclosureRegistryAbi,
+          functionName: 'revokeDisclosure',
+          args: [auditorAddress as `0x${string}`],
+        });
+      },
     });
-  };
 
   return { grants, isLoading, grantDisclosure, revokeDisclosure, refresh: loadGrants };
 }
