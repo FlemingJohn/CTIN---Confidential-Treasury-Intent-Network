@@ -1,109 +1,111 @@
-<svg width="1240" height="620" viewBox="0 0 1240 620" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="CTIN architecture and flow">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1040" role="img" aria-label="CTIN architecture and flow" font-family="'Segoe UI', Arial, sans-serif">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="620" gradientUnits="userSpaceOnUse">
+    <linearGradient id="obsidian" x1="0" y1="0" x2="0" y2="1040" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#0b0b0d"/>
       <stop offset="1" stop-color="#050505"/>
     </linearGradient>
-    <radialGradient id="glow" cx="0.5" cy="1.1" r="0.8">
-      <stop offset="0" stop-color="#ff6b1a" stop-opacity="0.14"/>
+    <radialGradient id="emberGlow" cx="0.5" cy="1.05" r="0.85">
+      <stop offset="0" stop-color="#ff6b1a" stop-opacity="0.16"/>
       <stop offset="1" stop-color="#050505" stop-opacity="0"/>
     </radialGradient>
+    <linearGradient id="flame" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffd7a8"/>
+      <stop offset="0.55" stop-color="#ff6b1a"/>
+      <stop offset="1" stop-color="#e11d2a"/>
+    </linearGradient>
     <marker id="arrow" markerWidth="10" markerHeight="8" refX="7.5" refY="3" orient="auto" markerUnits="strokeWidth">
       <path d="M0,0 L8,3 L0,6 Z" fill="#ffffff"/>
     </marker>
     <marker id="arrowEmber" markerWidth="10" markerHeight="8" refX="7.5" refY="3" orient="auto" markerUnits="strokeWidth">
-      <path d="M0,0 L8,3 L0,6 Z" fill="#ffd7a8"/>
+      <path d="M0,0 L8,3 L0,6 Z" fill="#ff6b1a"/>
     </marker>
   </defs>
 
-  <rect width="1240" height="620" fill="url(#bg)"/>
-  <rect width="1240" height="620" fill="url(#glow)"/>
+  <rect width="1600" height="1040" fill="url(#obsidian)"/>
+  <rect width="1600" height="1040" fill="url(#emberGlow)"/>
 
-  <text x="30" y="52" font-family="'Segoe UI', Arial, sans-serif" font-size="26" font-weight="800" fill="#f5f5f4">CTIN Architecture and Flow</text>
-  <text x="31" y="78" font-family="'Consolas', monospace" font-size="13" letter-spacing="1" fill="#8a8a92">Treasury Signer to Browser to Frontend to Wallet to confidential contracts to execution</text>
+  <text x="620" y="62" text-anchor="middle" font-size="28" font-weight="800" fill="#f5f5f4">CTIN Architecture and Flow</text>
+  <text x="620" y="92" text-anchor="middle" font-family="'Consolas', monospace" font-size="15" letter-spacing="1" fill="#8a8a92">Confidential middleware between institutions and unmodified Safe + Uniswap</text>
 
-  <g stroke="#ffffff" stroke-width="2" fill="none">
-    <line x1="230" y1="170" x2="266" y2="170" marker-end="url(#arrow)"/>
-    <line x1="470" y1="170" x2="506" y2="170" marker-end="url(#arrow)"/>
-    <line x1="710" y1="170" x2="746" y2="170" marker-end="url(#arrow)"/>
-    <line x1="950" y1="170" x2="986" y2="170" marker-end="url(#arrow)"/>
-    <line x1="1090" y1="200" x2="1090" y2="376" marker-end="url(#arrow)"/>
-    <line x1="990" y1="410" x2="954" y2="410" marker-end="url(#arrow)"/>
-    <line x1="750" y1="410" x2="714" y2="410" marker-end="url(#arrow)"/>
-    <line x1="510" y1="410" x2="474" y2="410" marker-end="url(#arrow)"/>
-    <line x1="270" y1="410" x2="234" y2="410" marker-end="url(#arrow)"/>
-    <line x1="850" y1="440" x2="850" y2="486" marker-end="url(#arrow)"/>
+  <!-- central vertical spine (white on-chain flow) -->
+  <g stroke="#ffffff" stroke-width="2.5" fill="none">
+    <line x1="800" y1="220" x2="800" y2="298" marker-end="url(#arrow)"/>
+    <line x1="800" y1="672" x2="800" y2="738" marker-end="url(#arrow)"/>
+    <line x1="800" y1="850" x2="800" y2="908" marker-end="url(#arrow)"/>
+  </g>
+  <!-- net residual (ember) down the spine -->
+  <line x1="800" y1="470" x2="800" y2="538" stroke="#ff6b1a" stroke-width="2.5" fill="none" marker-end="url(#arrowEmber)"/>
+
+  <!-- horizontal connectors (no diagonals) -->
+  <line x1="380" y1="385" x2="618" y2="385" stroke="#ffffff" stroke-width="2.5" fill="none" marker-end="url(#arrow)"/>
+  <line x1="982" y1="385" x2="1218" y2="385" stroke="#ff6b1a" stroke-width="2.5" stroke-dasharray="8 6" fill="none" marker-end="url(#arrowEmber)"/>
+  <line x1="1218" y1="605" x2="982" y2="605" stroke="#ffffff" stroke-width="2.5" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- edge labels -->
+  <g font-family="'Consolas', monospace" font-size="16" fill="#8a8a92">
+    <text x="812" y="270">encrypted intent</text>
+    <text x="812" y="512" fill="#ff6b1a">net residual</text>
+    <text x="812" y="712">swap</text>
+    <text x="812" y="888">settle</text>
+    <text x="420" y="372">open / close / settle</text>
+    <text x="1000" y="372" fill="#ff6b1a">selective disclosure</text>
+    <text x="1010" y="592">pull from Safe</text>
   </g>
 
-  <g stroke="#ffd7a8" stroke-width="1.6" stroke-dasharray="5 4" fill="none">
-    <line x1="610" y1="200" x2="843" y2="376" marker-end="url(#arrowEmber)"/>
+  <!-- nodes -->
+  <g font-size="25" font-weight="700" fill="#f5f5f4">
+    <!-- Institutions -->
+    <rect x="620" y="110" width="360" height="110" rx="16" fill="#111114" stroke="#1f1f24" stroke-width="1.5"/>
+    <text x="800" y="158" text-anchor="middle">Institutions</text>
+    <text x="800" y="192" text-anchor="middle" font-family="'Consolas', monospace" font-size="16" font-weight="400" fill="#8a8a92">Encrypt amount to a Nox handle</text>
+
+    <!-- Runner -->
+    <rect x="80" y="330" width="300" height="110" rx="16" fill="#111114" stroke="#1f1f24" stroke-width="1.5"/>
+    <text x="230" y="378" text-anchor="middle">Runner</text>
+    <text x="230" y="410" text-anchor="middle" font-family="'Consolas', monospace" font-size="16" font-weight="400" fill="#8a8a92">Automates the lifecycle</text>
+
+    <!-- Confidential Intent Network -->
+    <rect x="620" y="300" width="360" height="170" rx="20" fill="#0b0b0d" stroke="#ff6b1a" stroke-width="2"/>
+    <g transform="translate(654 326) scale(1.5)">
+      <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z" fill="url(#flame)"/>
+    </g>
+    <text x="716" y="352" font-size="24">Confidential Intent Network</text>
+    <text x="654" y="404" font-family="'Consolas', monospace" font-size="16" font-weight="400" fill="#ffd7a8">Homomorphic netting</text>
+    <text x="654" y="432" font-family="'Consolas', monospace" font-size="16" font-weight="400" fill="#8a8a92">Nox FHE + TEE</text>
+
+    <!-- Auditor -->
+    <rect x="1220" y="320" width="300" height="130" rx="16" fill="#111114" stroke="#1f1f24" stroke-width="1.5"/>
+    <text x="1370" y="366" text-anchor="middle">Auditor</text>
+    <text x="1370" y="398" text-anchor="middle" font-family="'Consolas', monospace" font-size="16" font-weight="400" fill="#8a8a92">Nox viewer access</text>
+    <text x="1370" y="424" text-anchor="middle" font-family="'Consolas', monospace" font-size="16" font-weight="400" fill="#8a8a92">Signed compliance report</text>
+
+    <!-- Treasury Safe Module -->
+    <rect x="620" y="540" width="360" height="132" rx="16" fill="#111114" stroke="#1f1f24" stroke-width="1.5"/>
+    <text x="800" y="590" text-anchor="middle" font-size="24">Treasury Safe Module</text>
+    <text x="800" y="622" text-anchor="middle" font-family="'Consolas', monospace" font-size="16" font-weight="400" fill="#8a8a92">Scoped per-batch pull</text>
+    <text x="800" y="648" text-anchor="middle" font-family="'Consolas', monospace" font-size="16" font-weight="400" fill="#8a8a92">execTransactionFromModule</text>
+
+    <!-- Safe -->
+    <rect x="1220" y="540" width="300" height="130" rx="16" fill="#111114" stroke="#1f1f24" stroke-width="1.5"/>
+    <text x="1370" y="590" text-anchor="middle">Safe</text>
+    <text x="1370" y="622" text-anchor="middle" font-family="'Consolas', monospace" font-size="16" font-weight="400" fill="#8a8a92">Your custody, unmodified</text>
+
+    <!-- Uniswap Execution Adapter -->
+    <rect x="620" y="740" width="360" height="110" rx="16" fill="#111114" stroke="#1f1f24" stroke-width="1.5"/>
+    <text x="800" y="788" text-anchor="middle" font-size="24">Uniswap Execution Adapter</text>
+    <text x="800" y="820" text-anchor="middle" font-family="'Consolas', monospace" font-size="16" font-weight="400" fill="#8a8a92">exactInputSingle</text>
+
+    <!-- Uniswap v3 -->
+    <rect x="620" y="908" width="360" height="98" rx="16" fill="#111114" stroke="#22c55e" stroke-width="1.5"/>
+    <text x="800" y="954" text-anchor="middle" font-size="24">Uniswap v3</text>
+    <text x="800" y="984" text-anchor="middle" font-family="'Consolas', monospace" font-size="16" font-weight="400" fill="#8a8a92">Unmodified, Ethereum Sepolia</text>
   </g>
 
-  <g font-family="'Consolas', monospace" font-size="11" fill="#8a8a92">
-    <text x="655" y="292" transform="rotate(37 655 292)">submit encrypted intent</text>
-    <text x="1100" y="300">authorize</text>
-    <text x="958" y="400">net</text>
-    <text x="620" y="400">totals</text>
-    <text x="480" y="400">execute</text>
-    <text x="862" y="470">selective decrypt</text>
-  </g>
-
-  <g font-family="'Consolas', monospace" font-size="14" fill="#f5f5f4">
-    <g>
-      <rect x="30" y="140" width="200" height="60" rx="4" fill="#0b0b0d" stroke="#ff6b1a" stroke-width="1.5"/>
-      <text x="130" y="175" text-anchor="middle">Treasury Signer</text>
-    </g>
-    <g>
-      <rect x="270" y="140" width="200" height="60" rx="4" fill="#0b0b0d" stroke="#ff6b1a" stroke-width="1.5"/>
-      <text x="370" y="175" text-anchor="middle">Browser</text>
-    </g>
-    <g>
-      <rect x="510" y="140" width="200" height="60" rx="4" fill="#0b0b0d" stroke="#ff6b1a" stroke-width="1.5"/>
-      <g transform="translate(526,152) scale(1.1)">
-        <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z" fill="#ff6b1a"/>
-      </g>
-      <text x="622" y="175" text-anchor="middle">CTIN Frontend</text>
-    </g>
-    <g>
-      <rect x="750" y="140" width="200" height="60" rx="4" fill="#0b0b0d" stroke="#ff6b1a" stroke-width="1.5"/>
-      <text x="850" y="175" text-anchor="middle">Wallet</text>
-    </g>
-    <g>
-      <rect x="990" y="140" width="200" height="60" rx="4" fill="#0b0b0d" stroke="#ffffff" stroke-width="1.5"/>
-      <text x="1090" y="175" text-anchor="middle">Safe</text>
-    </g>
-
-    <g>
-      <rect x="990" y="380" width="200" height="60" rx="4" fill="#0b0b0d" stroke="#ffffff" stroke-width="1.5"/>
-      <text x="1090" y="415" text-anchor="middle">Safe Module</text>
-    </g>
-    <g>
-      <rect x="750" y="380" width="200" height="60" rx="4" fill="#0b0b0d" stroke="#ff6b1a" stroke-width="2.5"/>
-      <text x="850" y="406" text-anchor="middle">Intent Network</text>
-      <text x="850" y="426" text-anchor="middle" font-size="12" fill="#ffd7a8">Nox confidential</text>
-    </g>
-    <g>
-      <rect x="510" y="380" width="200" height="60" rx="4" fill="#0b0b0d" stroke="#ff6b1a" stroke-width="1.5"/>
-      <text x="610" y="415" text-anchor="middle">TEE Runner</text>
-    </g>
-    <g>
-      <rect x="270" y="380" width="200" height="60" rx="4" fill="#0b0b0d" stroke="#ffffff" stroke-width="1.5"/>
-      <text x="370" y="415" text-anchor="middle">Uniswap Adapter</text>
-    </g>
-    <g>
-      <rect x="30" y="380" width="200" height="60" rx="4" fill="#0b0b0d" stroke="#ffffff" stroke-width="1.5"/>
-      <text x="130" y="415" text-anchor="middle">Uniswap v3</text>
-    </g>
-    <g>
-      <rect x="750" y="490" width="200" height="60" rx="4" fill="#0b0b0d" stroke="#ffffff" stroke-width="1.5"/>
-      <text x="850" y="525" text-anchor="middle">Disclosure Registry</text>
-    </g>
-  </g>
-
-  <g font-family="'Consolas', monospace" font-size="12">
-    <rect x="30" y="580" width="16" height="16" rx="2" fill="#0b0b0d" stroke="#ff6b1a" stroke-width="1.5"/>
-    <text x="54" y="592" fill="#8a8a92">Off-chain</text>
-    <rect x="170" y="580" width="16" height="16" rx="2" fill="#0b0b0d" stroke="#ffffff" stroke-width="1.5"/>
-    <text x="194" y="592" fill="#8a8a92">Ethereum Sepolia (on-chain)</text>
+  <!-- legend -->
+  <g font-family="'Consolas', monospace" font-size="16">
+    <line x1="1150" y1="720" x2="1196" y2="720" stroke="#ffffff" stroke-width="2.5"/>
+    <text x="1206" y="725" fill="#8a8a92">on-chain flow</text>
+    <line x1="1150" y1="756" x2="1196" y2="756" stroke="#ff6b1a" stroke-width="2.5" stroke-dasharray="8 6"/>
+    <text x="1206" y="761" fill="#8a8a92">confidential disclosure</text>
   </g>
 </svg>
