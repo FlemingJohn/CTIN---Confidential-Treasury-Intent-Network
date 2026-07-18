@@ -9,6 +9,8 @@ import { intentNetworkAbi } from '@/source/contracts/intentNetworkAbi';
 import { intentNetworkAddress } from '@/source/contracts/contractAddresses';
 import { IntentDirection, SupportedAsset } from '@/source/shared/treasuryDomain';
 import { recordSubmittedIntent } from '@/source/institution/submittedIntentsStore';
+import { useTransactionRunner, sepoliaTransactionUrl } from '@/source/shared/useTransactionRunner';
+import { friendlyError } from '@/source/shared/friendlyError';
 
 interface SubmitIntentArguments {
   batchId: bigint;
@@ -21,53 +23,56 @@ export function useSubmitIntent() {
   const handleClient = useHandleClient();
   const { address } = useAccount();
   const { writeContractAsync } = useWriteContract();
+  const { run } = useTransactionRunner();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [transactionHash, setTransactionHash] = useState<`0x${string}` | null>(null);
 
   const submitIntent = async ({ batchId, amount, asset, direction }: SubmitIntentArguments) => {
-    if (!intentNetworkAddress) {
-      throw new Error('Intent network contract address is not configured');
-    }
-    if (!handleClient) {
-      throw new Error('Handle client is not ready');
-    }
-
     setIsSubmitting(true);
     setErrorMessage(null);
 
     try {
-      const plaintextAmount = parseUnits(amount, assetDecimals[asset]);
-      const { handle, handleProof } = await handleClient.encryptInput(
-        plaintextAmount,
-        'uint256',
-        intentNetworkAddress
-      );
-
-      const hash = await writeContractAsync({
-        address: intentNetworkAddress,
-        abi: intentNetworkAbi,
-        functionName: 'submitIntent',
-        args: [batchId, handle, handleProof, direction === 'buy'],
+      const hash = await run({
+        pending: 'Encrypting and submitting intent',
+        success: 'Confidential intent submitted',
+        linkFromResult: (value: `0x${string}`) => sepoliaTransactionUrl(value),
+        action: async () => {
+          if (!intentNetworkAddress) {
+            throw new Error('Intent network contract address is not configured');
+          }
+          if (!handleClient) {
+            throw new Error('Handle client is not ready');
+          }
+          const plaintextAmount = parseUnits(amount, assetDecimals[asset]);
+          const { handle, handleProof } = await handleClient.encryptInput(
+            plaintextAmount,
+            'uint256',
+            intentNetworkAddress
+          );
+          const submittedHash = await writeContractAsync({
+            address: intentNetworkAddress,
+            abi: intentNetworkAbi,
+            functionName: 'submitIntent',
+            args: [batchId, handle, handleProof, direction === 'buy'],
+          });
+          if (address) {
+            recordSubmittedIntent(address, {
+              batchId: batchId.toString(),
+              direction,
+              asset,
+              handle,
+              transactionHash: submittedHash,
+              submittedAtIso: new Date().toISOString(),
+            });
+          }
+          return submittedHash;
+        },
       });
-
-      if (address) {
-        recordSubmittedIntent(address, {
-          batchId: batchId.toString(),
-          direction,
-          asset,
-          handle,
-          transactionHash: hash,
-          submittedAtIso: new Date().toISOString(),
-        });
-      }
-
       setTransactionHash(hash);
       return hash;
     } catch (submitError) {
-      const message =
-        submitError instanceof Error ? submitError.message : 'Failed to submit intent';
-      setErrorMessage(message);
+      setErrorMessage(friendlyError(submitError));
       throw submitError;
     } finally {
       setIsSubmitting(false);
