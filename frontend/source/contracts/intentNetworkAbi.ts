@@ -20,6 +20,27 @@ export const intentNetworkAbi = [
   },
   {
     type: 'function',
+    name: 'authorizeAuditor',
+    stateMutability: 'nonpayable',
+    inputs: [{ name: 'auditor', type: 'address' }],
+    outputs: [],
+  },
+  {
+    type: 'function',
+    name: 'revokeAuditor',
+    stateMutability: 'nonpayable',
+    inputs: [],
+    outputs: [],
+  },
+  {
+    type: 'function',
+    name: 'auditorOf',
+    stateMutability: 'view',
+    inputs: [{ name: 'institution', type: 'address' }],
+    outputs: [{ name: '', type: 'address' }],
+  },
+  {
+    type: 'function',
     name: 'closeBatch',
     stateMutability: 'nonpayable',
     inputs: [{ name: 'batchId', type: 'uint256' }],
@@ -71,6 +92,23 @@ export const intentNetworkAbi = [
       { name: 'batchId', type: 'uint256', indexed: true },
       { name: 'institution', type: 'address', indexed: true },
       { name: 'isBuy', type: 'bool', indexed: false },
+      { name: 'handle', type: 'bytes32', indexed: false },
+    ],
+  },
+  {
+    type: 'event',
+    name: 'AuditorAuthorized',
+    inputs: [
+      { name: 'institution', type: 'address', indexed: true },
+      { name: 'auditor', type: 'address', indexed: true },
+    ],
+  },
+  {
+    type: 'event',
+    name: 'AuditorRevoked',
+    inputs: [
+      { name: 'institution', type: 'address', indexed: true },
+      { name: 'auditor', type: 'address', indexed: true },
     ],
   },
   {
