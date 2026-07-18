@@ -64,6 +64,22 @@ async def main():
     total = sum(beat["audioDurationSec"] for beat in out_beats)
     print(f"total narration: {round(total, 2)}s across {len(out_beats)} beats")
 
+    demo_steps_path = project / "demo-steps.json"
+    if demo_steps_path.exists():
+        demo_config = json.loads(demo_steps_path.read_text(encoding="utf-8"))
+        out_steps = []
+        for step in demo_config["steps"]:
+            step_id = step["id"]
+            output_path = audio_dir / f"demo-{step_id}.mp3"
+            words = await synthesize(step["text"], demo_config["voice"], demo_config["rate"], output_path)
+            duration = (words[-1]["end"] if words else 0.0) + TAIL_PAD_SECONDS
+            out_steps.append({"id": step_id, "audioDurationSec": round(duration, 3), "words": words})
+            print(f"demo {step_id}: {round(duration, 2)}s, {len(words)} words")
+        (project / "public" / "demo-steps.json").write_text(
+            json.dumps({"fps": demo_config["fps"], "steps": out_steps}, indent=2, ensure_ascii=True) + "\n",
+            encoding="utf-8",
+        )
+
 
 if __name__ == "__main__":
     asyncio.run(main())
