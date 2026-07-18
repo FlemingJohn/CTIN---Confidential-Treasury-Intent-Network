@@ -350,3 +350,20 @@ npm run open-batch:sepolia
 ```
 
 Or let the runner manage the lifecycle automatically with `cd runner && npm start`.
+
+## Attribution
+
+CTIN builds on existing open-source infrastructure, used unmodified:
+
+- **iExec Nox** — confidential compute layer (Handles, ACL, Handle Gateway).
+- **Safe** — custody; CTIN interacts through a standard Safe Module.
+- **Uniswap v3** — settlement venue via `exactInputSingle`.
+
+Built during the iExec WTF Hackathon Summer Edition (all original work):
+
+- The ConfidentialIntentNetwork, DisclosureRegistry, TreasurySafeModule, and UniswapExecutionAdapter contracts.
+- The encrypted-intent netting flow and revocable auditor disclosure on Nox.
+- The off-chain batch runner (open, close, decrypt net, settle) with fair-price guards.
+- The Next.js frontend (institution, operator, explorer, auditor).
+
+No code was reused from the previous VIBE Coding Hackathon.
