@@ -4,7 +4,7 @@ import { createEthersHandleClient } from "@iexec-nox/handle";
 
 dotenv.config();
 
-const INTENT_NETWORK_ADDRESS = "0x48aA7297B46b6d9671bfdf59421ba7Ae6c947fC6";
+const INTENT_NETWORK_ADDRESS = "0x762548935C21d46AA049a0cDB1776c47b3e76A49";
 
 const INTENTS: Array<{ amount: bigint; isBuy: boolean }> = [
   { amount: 400n, isBuy: true },
