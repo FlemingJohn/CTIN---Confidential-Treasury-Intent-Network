@@ -1,4 +1,6 @@
 import { ethers, network } from 'hardhat';
+import { writeFileSync, mkdirSync } from 'fs';
+import { join } from 'path';
 
 const DEFAULT_UNISWAP_SWAP_ROUTER = '0x3bFA4769FB09eefC5a80d6E87c3B9C650f7Ae48E';
 
@@ -45,6 +47,22 @@ async function deployConfidentialTreasuryStack() {
   const deploymentTransaction = intentNetwork.deploymentTransaction();
   const deploymentReceipt = deploymentTransaction ? await deploymentTransaction.wait() : null;
   const deploymentStartBlock = deploymentReceipt ? deploymentReceipt.blockNumber : 0;
+
+  const deploymentRecord = {
+    network: network.name,
+    intentNetwork: intentNetworkAddress,
+    disclosureRegistry: disclosureRegistryAddress,
+    safeModule: safeModuleAddress,
+    executionAdapter: executionAdapterAddress,
+    uniswapSwapRouter: uniswapSwapRouterAddress,
+    deploymentStartBlock,
+  };
+  const deploymentsDirectory = join(__dirname, '..', 'deployments');
+  mkdirSync(deploymentsDirectory, { recursive: true });
+  writeFileSync(
+    join(deploymentsDirectory, `${network.name}.json`),
+    `${JSON.stringify(deploymentRecord, null, 2)}\n`
+  );
 
   console.log('');
   console.log(`Network: ${network.name}`);
