@@ -2,6 +2,7 @@ import { ethers } from 'ethers';
 import { createEthersHandleClient } from '@iexec-nox/handle';
 import { config } from './config';
 import { intentNetworkAbi } from './abi';
+import { minimumAmountOut } from './fairPrice';
 
 const BATCH_STATUS = ['Open', 'Netting', 'Executing', 'Settled', 'Reverted'];
 
@@ -39,7 +40,13 @@ async function settleNetting(contract: any, handleClient: any, batchId: bigint) 
     netAmount > 0n;
 
   if (canExecute) {
-    console.log(`executing net residual on Uniswap from Safe ${config.settlementSafe}`);
+    const minOut =
+      config.referencePriceX18 > 0n
+        ? minimumAmountOut(netAmount, config.referencePriceX18, config.slippageBps)
+        : 0n;
+    console.log(
+      `executing net residual on Uniswap from Safe ${config.settlementSafe} (min out ${minOut})`
+    );
     await (
       await contract.executeSettlement(
         batchId,
@@ -47,7 +54,7 @@ async function settleNetting(contract: any, handleClient: any, batchId: bigint) 
         config.settlementAssetIn,
         config.settlementAssetOut,
         netAmount,
-        0n,
+        minOut,
         config.settlementSafe,
         reference
       )
