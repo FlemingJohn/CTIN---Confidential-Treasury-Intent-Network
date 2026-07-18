@@ -28,6 +28,14 @@
       "text": "This is not a mock. Every step runs live on Ethereum Sepolia: encrypted intents submitted, netted, and settled, with real transactions you can verify on-chain."
     },
     {
+      "id": "novelty",
+      "text": "Here is how CTIN compares. Confidential netting, others have that too. But execution straight from your existing Safe, real revocable auditor access, and signed compliance reports, that entire stack is CTIN alone."
+    },
+    {
+      "id": "usecases",
+      "text": "Who is this for? DAO treasuries that must not leak their strategy. Crypto funds entering and exiting large positions without front-running. Stablecoin issuers managing reserves. And tokenized asset managers who need privacy with compliance."
+    },
+    {
       "id": "close",
       "text": "Confidential treasury execution, on your existing Safe, with built-in auditor compliance. This is CTIN."
     }
