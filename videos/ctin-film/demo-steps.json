@@ -1,0 +1,31 @@
+{
+  "fps": 30,
+  "voice": "en-US-AndrewMultilingualNeural",
+  "rate": "-4%",
+  "steps": [
+    {
+      "id": "step1",
+      "text": "First, an institution connects its wallet. The standard flow, no custom wallet needed."
+    },
+    {
+      "id": "step2",
+      "text": "The network operator opens a fresh batch for institutions to join."
+    },
+    {
+      "id": "step3",
+      "text": "Before trading, the institution authorizes an auditor, who gains real, scoped access to decrypt its intents. This is the part no competitor has."
+    },
+    {
+      "id": "step4",
+      "text": "The institution submits an intent, buy four hundred ETH, encrypted on the device. Only a handle reaches the chain, and only the owner can decrypt it."
+    },
+    {
+      "id": "step5",
+      "text": "On the public explorer, everyone else sees just one netted footprint. Never who traded, never how much."
+    },
+    {
+      "id": "step6",
+      "text": "The authorized auditor connects, decrypts exactly what was shared, and exports a wallet-signed compliance report."
+    }
+  ]
+}
