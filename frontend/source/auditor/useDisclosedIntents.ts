@@ -34,6 +34,16 @@ export function useDisclosedIntents() {
         toBlock: 'latest',
       });
 
+      const authorizationBlockByInstitution = new Map<string, bigint>();
+      for (const authorizedLog of authorizedLogs) {
+        const institution = (authorizedLog.args.institution as string).toLowerCase();
+        const blockNumber = authorizedLog.blockNumber as bigint;
+        const existing = authorizationBlockByInstitution.get(institution);
+        if (existing === undefined || blockNumber < existing) {
+          authorizationBlockByInstitution.set(institution, blockNumber);
+        }
+      }
+
       const institutions = Array.from(
         new Set(authorizedLogs.map((authorizedLog) => authorizedLog.args.institution as string))
       );
@@ -77,9 +87,14 @@ export function useDisclosedIntents() {
       });
 
       const disclosed = intentLogs
-        .filter((intentLog) =>
-          activeInstitutions.has((intentLog.args.institution as string).toLowerCase())
-        )
+        .filter((intentLog) => {
+          const institution = (intentLog.args.institution as string).toLowerCase();
+          if (!activeInstitutions.has(institution)) {
+            return false;
+          }
+          const authorizationBlock = authorizationBlockByInstitution.get(institution);
+          return authorizationBlock !== undefined && (intentLog.blockNumber as bigint) >= authorizationBlock;
+        })
         .map((intentLog) => ({
           batchId: (intentLog.args.batchId as bigint).toString(),
           institution: intentLog.args.institution as string,
