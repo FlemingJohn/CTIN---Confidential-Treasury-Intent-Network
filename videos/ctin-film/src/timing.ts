@@ -15,7 +15,7 @@ export interface FilmBeat {
 
 export const FPS = beatsManifest.fps;
 
-export const DEMO_CLIP_SECONDS = 64.52;
+export const DEMO_CLIP_SECONDS = 115.48;
 
 const tailPadSeconds: Record<string, number> = {
   hook: 0.7,
