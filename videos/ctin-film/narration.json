@@ -1,0 +1,35 @@
+{
+  "fps": 30,
+  "voice": "en-US-AndrewMultilingualNeural",
+  "rate": "-4%",
+  "beats": [
+    {
+      "id": "hook",
+      "text": "On-chain treasuries are glass houses. The moment a fund rebalances, buys, or pays out, the whole market can see it."
+    },
+    {
+      "id": "problem",
+      "text": "Bots front-run the trade, competitors copy the strategy, and sandwich attacks alone drained over two hundred eighty nine million dollars in early twenty twenty five. So institutions stay off-chain."
+    },
+    {
+      "id": "solution",
+      "text": "CTIN is a confidential execution layer. Institutions submit encrypted intents: a buy of four hundred, a sell of three hundred fifty, a buy of one hundred. Nox nets them privately inside a trusted enclave, and only the net, a buy of one hundred fifty, ever reaches the market."
+    },
+    {
+      "id": "architecture",
+      "text": "It runs on the tools you already use, unmodified. Funds never leave your Safe. A Safe module pulls only the netted trade and routes it through Uniswap. No forks, full composability."
+    },
+    {
+      "id": "demo",
+      "text": "Here it is, live. The operator opens a new batch for institutions to join. An institution composes an intent, buy four hundred ETH, but the amount is encrypted on the device before it ever touches the chain. Only an opaque handle is submitted. And only the owner can decrypt their own position, revealing four hundred, to them alone. On the public explorer, everyone else sees just one netted footprint, never who traded, or how much. And when compliance requires it, the institution grants a chosen auditor scoped, revocable disclosure, visible to the people you authorize, and no one else."
+    },
+    {
+      "id": "proof",
+      "text": "This is not a mock. Every step runs live on Ethereum Sepolia: encrypted intents submitted, netted, and settled, with real transactions you can verify on-chain."
+    },
+    {
+      "id": "close",
+      "text": "Confidential treasury execution, on your existing Safe, with built-in auditor compliance. This is CTIN."
+    }
+  ]
+}
