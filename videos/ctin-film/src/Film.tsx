@@ -8,6 +8,8 @@ import { Solution } from "./beats/Solution";
 import { Architecture } from "./beats/Architecture";
 import { Demo } from "./beats/Demo";
 import { Proof } from "./beats/Proof";
+import { Novelty } from "./beats/Novelty";
+import { UseCases } from "./beats/UseCases";
 import { Close } from "./beats/Close";
 
 const beatComponents: Record<string, (props: { beat: FilmBeat }) => JSX.Element> = {
@@ -17,6 +19,8 @@ const beatComponents: Record<string, (props: { beat: FilmBeat }) => JSX.Element>
   architecture: Architecture,
   demo: Demo,
   proof: Proof,
+  novelty: Novelty,
+  usecases: UseCases,
   close: Close,
 };
 
