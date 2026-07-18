@@ -5,7 +5,7 @@
   "beats": [
     {
       "id": "hook",
-      "text": "On-chain treasuries are glass houses. The moment a fund rebalances, buys, or pays out, the whole market can see it."
+      "text": "Hi, I'm Fleming John, and this is CTIN. On-chain treasuries are glass houses. The moment a fund rebalances, buys, or pays out, the whole market can see it."
     },
     {
       "id": "problem",
@@ -21,7 +21,7 @@
     },
     {
       "id": "demo",
-      "text": "Here it is, live. The operator opens a new batch for institutions to join. An institution composes an intent, buy four hundred ETH, but the amount is encrypted on the device before it ever touches the chain. Only an opaque handle is submitted. And only the owner can decrypt their own position, revealing four hundred, to them alone. On the public explorer, everyone else sees just one netted footprint, never who traded, or how much. And when compliance requires it, the institution grants a chosen auditor scoped, revocable disclosure, visible to the people you authorize, and no one else."
+      "text": "Here it is, running live on Ethereum Sepolia. Step one: an institution connects its wallet through the standard flow, no custom wallet, no migration. Step two: the operator opens a fresh batch for institutions to join. Step three, and this is the part no one else has, before trading the institution authorizes an auditor. That address gains real, scoped Nox access to decrypt this institution's intents, and only from this point forward. Step four: the institution composes an intent, buy four hundred ETH, but the amount is encrypted on the device before it ever reaches the chain. Only an opaque handle is submitted. And only the owner can decrypt their own position, revealing four hundred, to them alone. Step five: on the public explorer, everyone else sees a single netted footprint. Never who traded. Never how much. Step six: the auditor connects. Because they were authorized, they decrypt exactly the intents shared with them, and nothing else, then export a wallet signed compliance report in one click. Confidential to the market. Verifiable to the people you choose. That is CTIN."
     },
     {
       "id": "proof",
