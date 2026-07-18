@@ -1,0 +1,1377 @@
+{
+  "fps": 30,
+  "beats": [
+    {
+      "id": "hook",
+      "audioDurationSec": 8.901,
+      "words": [
+        {
+          "text": "On-chain",
+          "start": 0.104,
+          "end": 0.508
+        },
+        {
+          "text": "treasuries",
+          "start": 0.508,
+          "end": 1.003
+        },
+        {
+          "text": "are",
+          "start": 1.016,
+          "end": 1.146
+        },
+        {
+          "text": "glass",
+          "start": 1.146,
+          "end": 1.615
+        },
+        {
+          "text": "houses.",
+          "start": 1.615,
+          "end": 2.292
+        },
+        {
+          "text": "The",
+          "start": 2.721,
+          "end": 2.813
+        },
+        {
+          "text": "moment",
+          "start": 2.826,
+          "end": 3.177
+        },
+        {
+          "text": "a",
+          "start": 3.19,
+          "end": 3.242
+        },
+        {
+          "text": "fund",
+          "start": 3.255,
+          "end": 3.763
+        },
+        {
+          "text": "rebalances,",
+          "start": 3.776,
+          "end": 4.844
+        },
+        {
+          "text": "buys,",
+          "start": 5.065,
+          "end": 5.807
+        },
+        {
+          "text": "or",
+          "start": 5.99,
+          "end": 6.172
+        },
+        {
+          "text": "pays",
+          "start": 6.185,
+          "end": 6.576
+        },
+        {
+          "text": "out,",
+          "start": 6.576,
+          "end": 6.888
+        },
+        {
+          "text": "the",
+          "start": 7.135,
+          "end": 7.214
+        },
+        {
+          "text": "whole",
+          "start": 7.214,
+          "end": 7.435
+        },
+        {
+          "text": "market",
+          "start": 7.435,
+          "end": 7.826
+        },
+        {
+          "text": "can",
+          "start": 7.839,
+          "end": 7.969
+        },
+        {
+          "text": "see",
+          "start": 7.982,
+          "end": 8.281
+        },
+        {
+          "text": "it.",
+          "start": 8.281,
+          "end": 8.451
+        }
+      ]
+    },
+    {
+      "id": "problem",
+      "audioDurationSec": 13.054,
+      "words": [
+        {
+          "text": "Bots",
+          "start": 0.117,
+          "end": 0.391
+        },
+        {
+          "text": "front-run",
+          "start": 0.391,
+          "end": 1.016
+        },
+        {
+          "text": "the",
+          "start": 1.016,
+          "end": 1.081
+        },
+        {
+          "text": "trade,",
+          "start": 1.081,
+          "end": 1.602
+        },
+        {
+          "text": "competitors",
+          "start": 2.044,
+          "end": 2.734
+        },
+        {
+          "text": "copy",
+          "start": 2.747,
+          "end": 3.281
+        },
+        {
+          "text": "the",
+          "start": 3.281,
+          "end": 3.359
+        },
+        {
+          "text": "strategy,",
+          "start": 3.372,
+          "end": 4.089
+        },
+        {
+          "text": "and",
+          "start": 4.349,
+          "end": 4.505
+        },
+        {
+          "text": "sandwich",
+          "start": 4.518,
+          "end": 5.0
+        },
+        {
+          "text": "attacks",
+          "start": 5.0,
+          "end": 5.43
+        },
+        {
+          "text": "alone",
+          "start": 5.495,
+          "end": 5.924
+        },
+        {
+          "text": "drained",
+          "start": 5.938,
+          "end": 6.406
+        },
+        {
+          "text": "over",
+          "start": 6.406,
+          "end": 6.615
+        },
+        {
+          "text": "two",
+          "start": 6.628,
+          "end": 6.836
+        },
+        {
+          "text": "hundred",
+          "start": 6.836,
+          "end": 7.214
+        },
+        {
+          "text": "eighty",
+          "start": 7.37,
+          "end": 7.604
+        },
+        {
+          "text": "nine",
+          "start": 7.604,
+          "end": 7.917
+        },
+        {
+          "text": "million",
+          "start": 7.917,
+          "end": 8.307
+        },
+        {
+          "text": "dollars",
+          "start": 8.307,
+          "end": 8.763
+        },
+        {
+          "text": "in",
+          "start": 8.763,
+          "end": 8.945
+        },
+        {
+          "text": "early",
+          "start": 8.958,
+          "end": 9.232
+        },
+        {
+          "text": "twenty",
+          "start": 9.245,
+          "end": 9.492
+        },
+        {
+          "text": "twenty",
+          "start": 9.492,
+          "end": 9.714
+        },
+        {
+          "text": "five.",
+          "start": 9.727,
+          "end": 10.221
+        },
+        {
+          "text": "So",
+          "start": 10.638,
+          "end": 10.82
+        },
+        {
+          "text": "institutions",
+          "start": 10.82,
+          "end": 11.589
+        },
+        {
+          "text": "stay",
+          "start": 11.706,
+          "end": 12.005
+        },
+        {
+          "text": "off-chain.",
+          "start": 12.018,
+          "end": 12.604
+        }
+      ]
+    },
+    {
+      "id": "solution",
+      "audioDurationSec": 21.427,
+      "words": [
+        {
+          "text": "CTIN",
+          "start": 0.104,
+          "end": 0.911
+        },
+        {
+          "text": "is",
+          "start": 1.094,
+          "end": 1.185
+        },
+        {
+          "text": "a",
+          "start": 1.185,
+          "end": 1.25
+        },
+        {
+          "text": "confidential",
+          "start": 1.25,
+          "end": 2.161
+        },
+        {
+          "text": "execution",
+          "start": 2.175,
+          "end": 2.839
+        },
+        {
+          "text": "layer.",
+          "start": 2.839,
+          "end": 3.216
+        },
+        {
+          "text": "Institutions",
+          "start": 3.633,
+          "end": 4.427
+        },
+        {
+          "text": "submit",
+          "start": 4.427,
+          "end": 5.091
+        },
+        {
+          "text": "encrypted",
+          "start": 5.156,
+          "end": 5.807
+        },
+        {
+          "text": "intents:",
+          "start": 5.807,
+          "end": 6.589
+        },
+        {
+          "text": "a",
+          "start": 7.018,
+          "end": 7.083
+        },
+        {
+          "text": "buy",
+          "start": 7.083,
+          "end": 7.383
+        },
+        {
+          "text": "of",
+          "start": 7.383,
+          "end": 7.461
+        },
+        {
+          "text": "four",
+          "start": 7.474,
+          "end": 7.852
+        },
+        {
+          "text": "hundred,",
+          "start": 7.865,
+          "end": 8.307
+        },
+        {
+          "text": "a",
+          "start": 8.724,
+          "end": 8.763
+        },
+        {
+          "text": "sell",
+          "start": 8.763,
+          "end": 9.128
+        },
+        {
+          "text": "of",
+          "start": 9.128,
+          "end": 9.219
+        },
+        {
+          "text": "three",
+          "start": 9.232,
+          "end": 9.518
+        },
+        {
+          "text": "hundred",
+          "start": 9.518,
+          "end": 9.753
+        },
+        {
+          "text": "fifty,",
+          "start": 9.753,
+          "end": 10.313
+        },
+        {
+          "text": "a",
+          "start": 10.729,
+          "end": 10.807
+        },
+        {
+          "text": "buy",
+          "start": 10.82,
+          "end": 11.315
+        },
+        {
+          "text": "of",
+          "start": 11.315,
+          "end": 11.38
+        },
+        {
+          "text": "one",
+          "start": 11.38,
+          "end": 11.562
+        },
+        {
+          "text": "hundred.",
+          "start": 11.562,
+          "end": 12.057
+        },
+        {
+          "text": "Nox",
+          "start": 12.448,
+          "end": 12.773
+        },
+        {
+          "text": "nets",
+          "start": 12.786,
+          "end": 13.008
+        },
+        {
+          "text": "them",
+          "start": 13.008,
+          "end": 13.229
+        },
+        {
+          "text": "privately",
+          "start": 13.242,
+          "end": 13.971
+        },
+        {
+          "text": "inside",
+          "start": 13.971,
+          "end": 14.701
+        },
+        {
+          "text": "a",
+          "start": 14.714,
+          "end": 14.766
+        },
+        {
+          "text": "trusted",
+          "start": 14.779,
+          "end": 15.299
+        },
+        {
+          "text": "enclave,",
+          "start": 15.3,
+          "end": 16.003
+        },
+        {
+          "text": "and",
+          "start": 16.419,
+          "end": 16.615
+        },
+        {
+          "text": "only",
+          "start": 16.628,
+          "end": 16.94
+        },
+        {
+          "text": "the",
+          "start": 16.94,
+          "end": 17.031
+        },
+        {
+          "text": "net,",
+          "start": 17.044,
+          "end": 17.435
+        },
+        {
+          "text": "a",
+          "start": 17.93,
+          "end": 18.021
+        },
+        {
+          "text": "buy",
+          "start": 18.021,
+          "end": 18.372
+        },
+        {
+          "text": "of",
+          "start": 18.385,
+          "end": 18.451
+        },
+        {
+          "text": "one",
+          "start": 18.464,
+          "end": 18.568
+        },
+        {
+          "text": "hundred",
+          "start": 18.568,
+          "end": 18.841
+        },
+        {
+          "text": "fifty,",
+          "start": 18.841,
+          "end": 19.414
+        },
+        {
+          "text": "ever",
+          "start": 19.701,
+          "end": 20.0
+        },
+        {
+          "text": "reaches",
+          "start": 20.0,
+          "end": 20.352
+        },
+        {
+          "text": "the",
+          "start": 20.352,
+          "end": 20.43
+        },
+        {
+          "text": "market.",
+          "start": 20.443,
+          "end": 20.977
+        }
+      ]
+    },
+    {
+      "id": "architecture",
+      "audioDurationSec": 13.08,
+      "words": [
+        {
+          "text": "It",
+          "start": 0.104,
+          "end": 0.26
+        },
+        {
+          "text": "runs",
+          "start": 0.26,
+          "end": 0.521
+        },
+        {
+          "text": "on",
+          "start": 0.521,
+          "end": 0.586
+        },
+        {
+          "text": "the",
+          "start": 0.586,
+          "end": 0.677
+        },
+        {
+          "text": "tools",
+          "start": 0.677,
+          "end": 1.029
+        },
+        {
+          "text": "you",
+          "start": 1.029,
+          "end": 1.146
+        },
+        {
+          "text": "already",
+          "start": 1.146,
+          "end": 1.523
+        },
+        {
+          "text": "use,",
+          "start": 1.523,
+          "end": 2.018
+        },
+        {
+          "text": "unmodified.",
+          "start": 2.031,
+          "end": 2.839
+        },
+        {
+          "text": "Funds",
+          "start": 3.333,
+          "end": 3.568
+        },
+        {
+          "text": "never",
+          "start": 3.568,
+          "end": 3.88
+        },
+        {
+          "text": "leave",
+          "start": 3.88,
+          "end": 4.115
+        },
+        {
+          "text": "your",
+          "start": 4.128,
+          "end": 4.232
+        },
+        {
+          "text": "Safe.",
+          "start": 4.232,
+          "end": 4.701
+        },
+        {
+          "text": "A",
+          "start": 5.104,
+          "end": 5.156
+        },
+        {
+          "text": "Safe",
+          "start": 5.156,
+          "end": 5.495
+        },
+        {
+          "text": "module",
+          "start": 5.495,
+          "end": 6.029
+        },
+        {
+          "text": "pulls",
+          "start": 6.029,
+          "end": 6.406
+        },
+        {
+          "text": "only",
+          "start": 6.523,
+          "end": 6.836
+        },
+        {
+          "text": "the",
+          "start": 6.836,
+          "end": 6.914
+        },
+        {
+          "text": "netted",
+          "start": 6.927,
+          "end": 7.187
+        },
+        {
+          "text": "trade",
+          "start": 7.188,
+          "end": 7.682
+        },
+        {
+          "text": "and",
+          "start": 7.904,
+          "end": 8.099
+        },
+        {
+          "text": "routes",
+          "start": 8.099,
+          "end": 8.437
+        },
+        {
+          "text": "it",
+          "start": 8.438,
+          "end": 8.594
+        },
+        {
+          "text": "through",
+          "start": 8.698,
+          "end": 8.932
+        },
+        {
+          "text": "Uniswap.",
+          "start": 8.932,
+          "end": 9.779
+        },
+        {
+          "text": "No",
+          "start": 10.208,
+          "end": 10.482
+        },
+        {
+          "text": "forks,",
+          "start": 10.482,
+          "end": 11.159
+        },
+        {
+          "text": "full",
+          "start": 11.354,
+          "end": 11.693
+        },
+        {
+          "text": "composability.",
+          "start": 11.693,
+          "end": 12.63
+        }
+      ]
+    },
+    {
+      "id": "demo",
+      "audioDurationSec": 41.114,
+      "words": [
+        {
+          "text": "Here",
+          "start": 0.117,
+          "end": 0.221
+        },
+        {
+          "text": "it",
+          "start": 0.221,
+          "end": 0.273
+        },
+        {
+          "text": "is,",
+          "start": 0.273,
+          "end": 0.469
+        },
+        {
+          "text": "live.",
+          "start": 0.482,
+          "end": 0.911
+        },
+        {
+          "text": "The",
+          "start": 1.328,
+          "end": 1.406
+        },
+        {
+          "text": "operator",
+          "start": 1.406,
+          "end": 1.992
+        },
+        {
+          "text": "opens",
+          "start": 2.005,
+          "end": 2.305
+        },
+        {
+          "text": "a",
+          "start": 2.305,
+          "end": 2.331
+        },
+        {
+          "text": "new",
+          "start": 2.331,
+          "end": 2.63
+        },
+        {
+          "text": "batch",
+          "start": 2.643,
+          "end": 3.125
+        },
+        {
+          "text": "for",
+          "start": 3.125,
+          "end": 3.333
+        },
+        {
+          "text": "institutions",
+          "start": 3.333,
+          "end": 4.141
+        },
+        {
+          "text": "to",
+          "start": 4.141,
+          "end": 4.219
+        },
+        {
+          "text": "join.",
+          "start": 4.219,
+          "end": 4.675
+        },
+        {
+          "text": "An",
+          "start": 5.078,
+          "end": 5.156
+        },
+        {
+          "text": "institution",
+          "start": 5.156,
+          "end": 6.003
+        },
+        {
+          "text": "composes",
+          "start": 6.016,
+          "end": 6.641
+        },
+        {
+          "text": "an",
+          "start": 6.641,
+          "end": 6.706
+        },
+        {
+          "text": "intent,",
+          "start": 6.706,
+          "end": 7.318
+        },
+        {
+          "text": "buy",
+          "start": 7.578,
+          "end": 7.878
+        },
+        {
+          "text": "four",
+          "start": 8.112,
+          "end": 8.385
+        },
+        {
+          "text": "hundred",
+          "start": 8.385,
+          "end": 8.633
+        },
+        {
+          "text": "ETH,",
+          "start": 8.633,
+          "end": 9.518
+        },
+        {
+          "text": "but",
+          "start": 9.818,
+          "end": 9.935
+        },
+        {
+          "text": "the",
+          "start": 9.935,
+          "end": 10.026
+        },
+        {
+          "text": "amount",
+          "start": 10.026,
+          "end": 10.417
+        },
+        {
+          "text": "is",
+          "start": 10.43,
+          "end": 10.56
+        },
+        {
+          "text": "encrypted",
+          "start": 10.56,
+          "end": 11.185
+        },
+        {
+          "text": "on",
+          "start": 11.185,
+          "end": 11.276
+        },
+        {
+          "text": "the",
+          "start": 11.289,
+          "end": 11.367
+        },
+        {
+          "text": "device",
+          "start": 11.367,
+          "end": 11.914
+        },
+        {
+          "text": "before",
+          "start": 11.914,
+          "end": 12.331
+        },
+        {
+          "text": "it",
+          "start": 12.331,
+          "end": 12.409
+        },
+        {
+          "text": "ever",
+          "start": 12.5,
+          "end": 12.721
+        },
+        {
+          "text": "touches",
+          "start": 12.721,
+          "end": 13.112
+        },
+        {
+          "text": "the",
+          "start": 13.125,
+          "end": 13.203
+        },
+        {
+          "text": "chain.",
+          "start": 13.216,
+          "end": 13.633
+        },
+        {
+          "text": "Only",
+          "start": 14.05,
+          "end": 14.271
+        },
+        {
+          "text": "an",
+          "start": 14.271,
+          "end": 14.362
+        },
+        {
+          "text": "opaque",
+          "start": 14.362,
+          "end": 14.753
+        },
+        {
+          "text": "handle",
+          "start": 14.753,
+          "end": 15.234
+        },
+        {
+          "text": "is",
+          "start": 15.339,
+          "end": 15.43
+        },
+        {
+          "text": "submitted.",
+          "start": 15.43,
+          "end": 15.977
+        },
+        {
+          "text": "And",
+          "start": 16.38,
+          "end": 16.497
+        },
+        {
+          "text": "only",
+          "start": 16.497,
+          "end": 16.797
+        },
+        {
+          "text": "the",
+          "start": 16.797,
+          "end": 16.927
+        },
+        {
+          "text": "owner",
+          "start": 16.927,
+          "end": 17.318
+        },
+        {
+          "text": "can",
+          "start": 17.331,
+          "end": 17.474
+        },
+        {
+          "text": "decrypt",
+          "start": 17.474,
+          "end": 18.138
+        },
+        {
+          "text": "their",
+          "start": 18.151,
+          "end": 18.346
+        },
+        {
+          "text": "own",
+          "start": 18.346,
+          "end": 18.555
+        },
+        {
+          "text": "position,",
+          "start": 18.555,
+          "end": 19.167
+        },
+        {
+          "text": "revealing",
+          "start": 19.609,
+          "end": 20.143
+        },
+        {
+          "text": "four",
+          "start": 20.143,
+          "end": 20.573
+        },
+        {
+          "text": "hundred,",
+          "start": 20.586,
+          "end": 21.133
+        },
+        {
+          "text": "to",
+          "start": 21.406,
+          "end": 21.51
+        },
+        {
+          "text": "them",
+          "start": 21.51,
+          "end": 21.68
+        },
+        {
+          "text": "alone.",
+          "start": 21.693,
+          "end": 22.096
+        },
+        {
+          "text": "On",
+          "start": 22.513,
+          "end": 22.591
+        },
+        {
+          "text": "the",
+          "start": 22.591,
+          "end": 22.656
+        },
+        {
+          "text": "public",
+          "start": 22.656,
+          "end": 22.969
+        },
+        {
+          "text": "explorer,",
+          "start": 22.969,
+          "end": 23.607
+        },
+        {
+          "text": "everyone",
+          "start": 24.049,
+          "end": 24.336
+        },
+        {
+          "text": "else",
+          "start": 24.349,
+          "end": 24.57
+        },
+        {
+          "text": "sees",
+          "start": 24.57,
+          "end": 25.039
+        },
+        {
+          "text": "just",
+          "start": 25.13,
+          "end": 25.391
+        },
+        {
+          "text": "one",
+          "start": 25.404,
+          "end": 25.716
+        },
+        {
+          "text": "netted",
+          "start": 25.716,
+          "end": 25.951
+        },
+        {
+          "text": "footprint,",
+          "start": 25.951,
+          "end": 26.523
+        },
+        {
+          "text": "never",
+          "start": 26.979,
+          "end": 27.292
+        },
+        {
+          "text": "who",
+          "start": 27.305,
+          "end": 27.461
+        },
+        {
+          "text": "traded,",
+          "start": 27.474,
+          "end": 28.047
+        },
+        {
+          "text": "or",
+          "start": 28.49,
+          "end": 28.724
+        },
+        {
+          "text": "how",
+          "start": 28.906,
+          "end": 29.128
+        },
+        {
+          "text": "much.",
+          "start": 29.128,
+          "end": 29.714
+        },
+        {
+          "text": "And",
+          "start": 30.143,
+          "end": 30.26
+        },
+        {
+          "text": "when",
+          "start": 30.26,
+          "end": 30.456
+        },
+        {
+          "text": "compliance",
+          "start": 30.456,
+          "end": 31.107
+        },
+        {
+          "text": "requires",
+          "start": 31.107,
+          "end": 31.654
+        },
+        {
+          "text": "it,",
+          "start": 31.667,
+          "end": 31.823
+        },
+        {
+          "text": "the",
+          "start": 32.057,
+          "end": 32.148
+        },
+        {
+          "text": "institution",
+          "start": 32.161,
+          "end": 32.956
+        },
+        {
+          "text": "grants",
+          "start": 32.969,
+          "end": 33.503
+        },
+        {
+          "text": "a",
+          "start": 33.62,
+          "end": 33.685
+        },
+        {
+          "text": "chosen",
+          "start": 33.698,
+          "end": 34.284
+        },
+        {
+          "text": "auditor",
+          "start": 34.297,
+          "end": 34.753
+        },
+        {
+          "text": "scoped,",
+          "start": 34.753,
+          "end": 35.378
+        },
+        {
+          "text": "revocable",
+          "start": 35.638,
+          "end": 36.25
+        },
+        {
+          "text": "disclosure,",
+          "start": 36.25,
+          "end": 36.992
+        },
+        {
+          "text": "visible",
+          "start": 37.461,
+          "end": 37.943
+        },
+        {
+          "text": "to",
+          "start": 37.943,
+          "end": 38.021
+        },
+        {
+          "text": "the",
+          "start": 38.021,
+          "end": 38.125
+        },
+        {
+          "text": "people",
+          "start": 38.138,
+          "end": 38.516
+        },
+        {
+          "text": "you",
+          "start": 38.516,
+          "end": 38.672
+        },
+        {
+          "text": "authorize,",
+          "start": 38.672,
+          "end": 39.57
+        },
+        {
+          "text": "and",
+          "start": 39.661,
+          "end": 39.844
+        },
+        {
+          "text": "no",
+          "start": 39.844,
+          "end": 40.026
+        },
+        {
+          "text": "one",
+          "start": 40.026,
+          "end": 40.156
+        },
+        {
+          "text": "else.",
+          "start": 40.169,
+          "end": 40.664
+        }
+      ]
+    },
+    {
+      "id": "proof",
+      "audioDurationSec": 11.583,
+      "words": [
+        {
+          "text": "This",
+          "start": 0.104,
+          "end": 0.221
+        },
+        {
+          "text": "is",
+          "start": 0.221,
+          "end": 0.299
+        },
+        {
+          "text": "not",
+          "start": 0.299,
+          "end": 0.456
+        },
+        {
+          "text": "a",
+          "start": 0.456,
+          "end": 0.482
+        },
+        {
+          "text": "mock.",
+          "start": 0.495,
+          "end": 0.951
+        },
+        {
+          "text": "Every",
+          "start": 1.354,
+          "end": 1.615
+        },
+        {
+          "text": "step",
+          "start": 1.628,
+          "end": 1.94
+        },
+        {
+          "text": "runs",
+          "start": 1.953,
+          "end": 2.292
+        },
+        {
+          "text": "live",
+          "start": 2.292,
+          "end": 2.865
+        },
+        {
+          "text": "on",
+          "start": 3.086,
+          "end": 3.242
+        },
+        {
+          "text": "Ethereum",
+          "start": 3.242,
+          "end": 3.763
+        },
+        {
+          "text": "Sepolia:",
+          "start": 3.776,
+          "end": 4.414
+        },
+        {
+          "text": "encrypted",
+          "start": 4.857,
+          "end": 5.404
+        },
+        {
+          "text": "intents",
+          "start": 5.417,
+          "end": 5.885
+        },
+        {
+          "text": "submitted,",
+          "start": 5.885,
+          "end": 6.445
+        },
+        {
+          "text": "netted,",
+          "start": 6.901,
+          "end": 7.266
+        },
+        {
+          "text": "and",
+          "start": 7.526,
+          "end": 7.656
+        },
+        {
+          "text": "settled,",
+          "start": 7.669,
+          "end": 8.177
+        },
+        {
+          "text": "with",
+          "start": 8.581,
+          "end": 8.763
+        },
+        {
+          "text": "real",
+          "start": 8.776,
+          "end": 9.062
+        },
+        {
+          "text": "transactions",
+          "start": 9.062,
+          "end": 9.805
+        },
+        {
+          "text": "you",
+          "start": 9.805,
+          "end": 9.87
+        },
+        {
+          "text": "can",
+          "start": 9.87,
+          "end": 9.961
+        },
+        {
+          "text": "verify",
+          "start": 9.961,
+          "end": 10.573
+        },
+        {
+          "text": "on-chain.",
+          "start": 10.586,
+          "end": 11.133
+        }
+      ]
+    },
+    {
+      "id": "close",
+      "audioDurationSec": 8.406,
+      "words": [
+        {
+          "text": "Confidential",
+          "start": 0.104,
+          "end": 0.859
+        },
+        {
+          "text": "treasury",
+          "start": 0.872,
+          "end": 1.432
+        },
+        {
+          "text": "execution,",
+          "start": 1.432,
+          "end": 2.253
+        },
+        {
+          "text": "on",
+          "start": 2.695,
+          "end": 2.812
+        },
+        {
+          "text": "your",
+          "start": 2.812,
+          "end": 3.008
+        },
+        {
+          "text": "existing",
+          "start": 3.008,
+          "end": 3.594
+        },
+        {
+          "text": "Safe,",
+          "start": 3.594,
+          "end": 4.206
+        },
+        {
+          "text": "with",
+          "start": 4.427,
+          "end": 4.596
+        },
+        {
+          "text": "built-in",
+          "start": 4.609,
+          "end": 5.208
+        },
+        {
+          "text": "auditor",
+          "start": 5.3,
+          "end": 5.638
+        },
+        {
+          "text": "compliance.",
+          "start": 5.638,
+          "end": 6.393
+        },
+        {
+          "text": "This",
+          "start": 6.81,
+          "end": 6.979
+        },
+        {
+          "text": "is",
+          "start": 6.979,
+          "end": 7.096
+        },
+        {
+          "text": "CTIN.",
+          "start": 7.109,
+          "end": 7.956
+        }
+      ]
+    }
+  ]
+}
