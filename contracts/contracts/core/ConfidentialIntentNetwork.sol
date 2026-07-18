@@ -7,6 +7,9 @@ import {
     externalEuint256
 } from "@iexec-nox/nox-protocol-contracts/contracts/sdk/Nox.sol";
 import {IConfidentialIntentNetwork} from "../interfaces/IConfidentialIntentNetwork.sol";
+import {IExecutionAdapter} from "../interfaces/IExecutionAdapter.sol";
+import {ISettlementModule} from "../interfaces/ISettlementModule.sol";
+import {IApprovableToken} from "../interfaces/IApprovableToken.sol";
 
 contract ConfidentialIntentNetwork is IConfidentialIntentNetwork {
     struct SubmittedIntent {
@@ -26,6 +29,8 @@ contract ConfidentialIntentNetwork is IConfidentialIntentNetwork {
 
     address public immutable networkOperator;
     address public immutable disclosureAuthority;
+    address public executionAdapter;
+    address public settlementModule;
 
     uint256 private nextBatchId;
     mapping(uint256 => Batch) private batches;
@@ -39,6 +44,14 @@ contract ConfidentialIntentNetwork is IConfidentialIntentNetwork {
     constructor(address disclosureAuthorityAddress) {
         networkOperator = msg.sender;
         disclosureAuthority = disclosureAuthorityAddress;
+    }
+
+    function setExecutionAdapter(address adapter) external onlyNetworkOperator {
+        executionAdapter = adapter;
+    }
+
+    function setSettlementModule(address module) external onlyNetworkOperator {
+        settlementModule = module;
     }
 
     function authorizeAuditor(address auditor) external {
@@ -131,6 +144,49 @@ contract ConfidentialIntentNetwork is IConfidentialIntentNetwork {
         batch.status = BatchStatus.Settled;
         batch.settlementReference = settlementReference;
         emit BatchSettled(batchId, settlementReference);
+    }
+
+    function executeSettlement(
+        uint256 batchId,
+        address safe,
+        address assetIn,
+        address assetOut,
+        uint256 netAmountIn,
+        uint256 minimumAmountOut,
+        address recipient,
+        bytes32 settlementReference
+    ) external onlyNetworkOperator returns (uint256 amountOut) {
+        Batch storage batch = batches[batchId];
+        require(batch.status == BatchStatus.Netting, "batch is not netting");
+        require(
+            settlementModule != address(0) && executionAdapter != address(0),
+            "settlement is not configured"
+        );
+
+        batch.status = BatchStatus.Executing;
+
+        bool pulled = ISettlementModule(settlementModule).pullForSettlement(
+            safe,
+            batchId,
+            assetIn,
+            netAmountIn,
+            address(this)
+        );
+        require(pulled, "safe pull failed");
+
+        IApprovableToken(assetIn).approve(executionAdapter, netAmountIn);
+        amountOut = IExecutionAdapter(executionAdapter).executeNetResidual(
+            assetIn,
+            assetOut,
+            netAmountIn,
+            minimumAmountOut,
+            recipient
+        );
+
+        batch.status = BatchStatus.Settled;
+        batch.settlementReference = settlementReference;
+        emit BatchSettled(batchId, settlementReference);
+        emit BatchExecuted(batchId, assetIn, assetOut, netAmountIn, amountOut);
     }
 
     function batchStatusOf(uint256 batchId) external view returns (BatchStatus) {
