@@ -1,10 +1,15 @@
 import { ethers, network } from "hardhat";
 import * as dotenv from "dotenv";
+import { readFileSync } from "fs";
+import { join } from "path";
 import { createEthersHandleClient } from "@iexec-nox/handle";
 
 dotenv.config();
 
-const INTENT_NETWORK_ADDRESS = "0x762548935C21d46AA049a0cDB1776c47b3e76A49";
+const deployment = JSON.parse(
+  readFileSync(join(__dirname, "..", "deployments", "sepolia.json"), "utf8")
+);
+const INTENT_NETWORK_ADDRESS = deployment.intentNetwork as string;
 const TEST_AUDITOR = ethers.getAddress("0x000000000000000000000000000000000000a0d1");
 
 async function main() {
