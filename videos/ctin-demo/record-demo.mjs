@@ -259,6 +259,7 @@ async function run() {
 
   const recordingStart = Date.now();
   const deadRanges = [];
+  const stepMarks = [];
   const secondsSinceStart = () => (Date.now() - recordingStart) / 1000;
   const deadWait = async (ms, keepMs = 1800) => {
     await page.waitForTimeout(keepMs);
@@ -271,6 +272,9 @@ async function run() {
     await moveCursor(page, pointer.x, pointer.y);
   };
   const setStep = async (text) => {
+    if (text) {
+      stepMarks.push({ label: text, t: secondsSinceStart() });
+    }
     await page.evaluate((value) => window.__ctinSetStep && window.__ctinSetStep(value), text);
   };
   const navigate = async (linkName, urlPattern) => {
@@ -295,8 +299,8 @@ async function run() {
   await page.waitForTimeout(2500);
   await shot(page, "connected");
 
-  await setStep("STEP 2 of 6  ·  OPERATOR OPENS A BATCH");
   await navigate(/operator/i, /\/operator/);
+  await setStep("STEP 2 of 6  ·  OPERATOR OPENS A BATCH");
   const openButton = page.getByRole("button", { name: /open new batch/i }).first();
   if (await openButton.isEnabled().catch(() => false)) {
     await hoverAndClick(page, openButton, "open batch");
@@ -304,15 +308,15 @@ async function run() {
   }
   await shot(page, "opened");
 
-  await setStep("STEP 3 of 6  ·  AUTHORIZE AN AUDITOR");
   await navigate(/auditor/i, /\/auditor/);
+  await setStep("STEP 3 of 6  ·  AUTHORIZE AN AUDITOR");
   await typeHuman(page, page.getByPlaceholder("0xAuditorAddress"), accounts[1], "auditor address");
   await hoverAndClick(page, page.getByRole("button", { name: /grant disclosure/i }).first(), "authorize");
   await deadWait(16000);
   await shot(page, "authorized");
 
-  await setStep("STEP 4 of 6  ·  SUBMIT ENCRYPTED INTENT");
   await navigate(/institution/i, /\/institution/);
+  await setStep("STEP 4 of 6  ·  SUBMIT ENCRYPTED INTENT");
   await hoverAndClick(page, page.getByRole("button", { name: /^buy$/i }).first(), "buy");
   await hoverAndClick(page, page.getByRole("button", { name: /^eth$/i }).first(), "eth");
   await typeHuman(page, page.getByPlaceholder("0.0"), "400", "amount");
@@ -325,18 +329,18 @@ async function run() {
   }
   await shot(page, "submitted");
 
-  await setStep("STEP 5 of 6  ·  PUBLIC SEES ONLY THE NET");
   await navigate(/explorer/i, /\/explorer/);
+  await setStep("STEP 5 of 6  ·  PUBLIC SEES ONLY THE NET");
   await page.waitForTimeout(3000);
   await shot(page, "explorer");
 
-  await setStep("STEP 6 of 6  ·  AUDITOR DECRYPTS + REPORT");
   await page.evaluate(async () => {
     const address = await window.__ctinSwitchAccount(1);
     window.__ctinEmit("accountsChanged", [address]);
   });
   await page.waitForTimeout(2500);
   await navigate(/auditor/i, /\/auditor/);
+  await setStep("STEP 6 of 6  ·  AUDITOR DECRYPTS + REPORT");
   await page.waitForTimeout(3500);
   const auditorDecrypt = page.getByRole("button", { name: /^decrypt$/i }).first();
   if (await auditorDecrypt.isVisible().catch(() => false)) {
@@ -354,7 +358,7 @@ async function run() {
 
   fs.writeFileSync(
     path.join(here, "capture", "timeline.json"),
-    JSON.stringify({ deadRanges }, null, 2)
+    JSON.stringify({ deadRanges, stepMarks, rawEnd: secondsSinceStart() }, null, 2)
   );
   await page.waitForTimeout(1500);
   await context.close();
