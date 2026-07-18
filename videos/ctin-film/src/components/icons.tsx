@@ -83,6 +83,12 @@ export const CheckIcon = ({ size = 28, color = "currentColor", strokeWidth = 2 }
   </svg>
 );
 
+export const CrossIcon = ({ size = 28, color = "currentColor", strokeWidth = 2 }: IconProps) => (
+  <svg {...base(size)} stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round">
+    <path d="M6 6l12 12M18 6l-12 12" />
+  </svg>
+);
+
 export const ShieldIcon = ({ size = 40, color = "currentColor", strokeWidth = 1.6 }: IconProps) => (
   <svg {...base(size)} stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round">
     <path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z" />
