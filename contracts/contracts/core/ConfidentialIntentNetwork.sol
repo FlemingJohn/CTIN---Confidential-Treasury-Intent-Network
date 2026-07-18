@@ -29,6 +29,7 @@ contract ConfidentialIntentNetwork is IConfidentialIntentNetwork {
 
     uint256 private nextBatchId;
     mapping(uint256 => Batch) private batches;
+    mapping(address => address) private institutionAuditor;
 
     modifier onlyNetworkOperator() {
         require(msg.sender == networkOperator, "caller is not the network operator");
@@ -38,6 +39,22 @@ contract ConfidentialIntentNetwork is IConfidentialIntentNetwork {
     constructor(address disclosureAuthorityAddress) {
         networkOperator = msg.sender;
         disclosureAuthority = disclosureAuthorityAddress;
+    }
+
+    function authorizeAuditor(address auditor) external {
+        require(auditor != address(0), "auditor is the zero address");
+        institutionAuditor[msg.sender] = auditor;
+        emit AuditorAuthorized(msg.sender, auditor);
+    }
+
+    function revokeAuditor() external {
+        address previousAuditor = institutionAuditor[msg.sender];
+        delete institutionAuditor[msg.sender];
+        emit AuditorRevoked(msg.sender, previousAuditor);
+    }
+
+    function auditorOf(address institution) external view returns (address) {
+        return institutionAuditor[institution];
     }
 
     function openBatch() external onlyNetworkOperator returns (uint256 batchId) {
@@ -85,12 +102,17 @@ contract ConfidentialIntentNetwork is IConfidentialIntentNetwork {
         Nox.allow(encryptedAmount, msg.sender);
         Nox.allow(encryptedAmount, disclosureAuthority);
 
+        address authorizedAuditor = institutionAuditor[msg.sender];
+        if (authorizedAuditor != address(0)) {
+            Nox.addViewer(encryptedAmount, authorizedAuditor);
+        }
+
         Nox.allowThis(batch.encryptedBuyTotal);
         Nox.allowThis(batch.encryptedSellTotal);
         Nox.allow(batch.encryptedBuyTotal, networkOperator);
         Nox.allow(batch.encryptedSellTotal, networkOperator);
 
-        emit IntentSubmitted(batchId, msg.sender, isBuy);
+        emit IntentSubmitted(batchId, msg.sender, isBuy, euint256.unwrap(encryptedAmount));
     }
 
     function closeBatch(uint256 batchId) external onlyNetworkOperator {
