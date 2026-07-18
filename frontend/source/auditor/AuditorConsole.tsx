@@ -2,6 +2,7 @@ import { PageShell } from '@/source/layout/PageShell';
 import { SectionHeading } from '@/source/shared/SectionHeading';
 import { DisclosureGrantForm } from '@/source/auditor/DisclosureGrantForm';
 import { DisclosureGrantList } from '@/source/auditor/DisclosureGrantList';
+import { DisclosedIntents } from '@/source/auditor/DisclosedIntents';
 
 export function AuditorConsole() {
   return (
@@ -14,6 +15,14 @@ export function AuditorConsole() {
       <div className="grid gap-6 lg:grid-cols-[380px_1fr]">
         <DisclosureGrantForm />
         <DisclosureGrantList />
+      </div>
+      <div className="mt-12">
+        <SectionHeading
+          overline="Disclosed to you"
+          title="Decrypt the intents shared with you."
+          description="Connected as an auditor, decrypt the confidential amounts institutions have authorized you to read. No one else can."
+        />
+        <DisclosedIntents />
       </div>
     </PageShell>
   );
