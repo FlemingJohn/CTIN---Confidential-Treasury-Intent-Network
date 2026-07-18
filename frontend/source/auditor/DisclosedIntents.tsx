@@ -8,13 +8,25 @@ import { ActionButton } from '@/source/shared/ActionButton';
 import { EmptyState } from '@/source/shared/EmptyState';
 import { useDecryptHandle } from '@/source/confidential/useDecryptHandle';
 import { useDisclosedIntents } from '@/source/auditor/useDisclosedIntents';
+import { useComplianceReport } from '@/source/auditor/useComplianceReport';
 
 export function DisclosedIntents() {
   const { address } = useAccount();
   const { intents } = useDisclosedIntents();
   const { decryptHandle, isReady } = useDecryptHandle();
+  const { exportReport } = useComplianceReport();
   const [decryptedByHandle, setDecryptedByHandle] = useState<Record<string, string>>({});
   const [decryptingHandle, setDecryptingHandle] = useState<string | null>(null);
+
+  const decryptedIntents = intents
+    .filter((intent) => decryptedByHandle[intent.handle] !== undefined)
+    .map((intent) => ({
+      institution: intent.institution,
+      batchId: intent.batchId,
+      direction: intent.direction,
+      handle: intent.handle,
+      amount: decryptedByHandle[intent.handle],
+    }));
 
   const handleDecrypt = async (handle: string) => {
     setDecryptingHandle(handle);
@@ -46,6 +58,16 @@ export function DisclosedIntents() {
 
   return (
     <div className="flex flex-col gap-3">
+      {decryptedIntents.length > 0 ? (
+        <div className="flex items-center justify-between border border-obsidian-border bg-obsidian-panel/60 p-4">
+          <span className="font-mono text-xs uppercase tracking-[0.2em] text-neutral-500">
+            {decryptedIntents.length} decrypted · signed report
+          </span>
+          <ActionButton variant="primary" onClick={() => exportReport(decryptedIntents)}>
+            Export compliance report
+          </ActionButton>
+        </div>
+      ) : null}
       {intents.map((intent) => {
         const decryptedAmount = decryptedByHandle[intent.handle];
         return (
