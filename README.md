@@ -18,6 +18,20 @@ Safe, and returns confidential receipts. Strategy stays hidden, custody stays in
 authorized auditors keep verifiable, revocable visibility on demand. Built for the iExec WTF
 Hackathon Summer Edition.
 
+## Demo
+
+A full walkthrough is in the demo video, produced with the Remotion project in `videos/ctin-film`.
+It follows the live six-step flow on Ethereum Sepolia: connect wallet, the operator opens a batch,
+an institution submits an encrypted intent and decrypts its own receipt, the public explorer shows
+only the net, then an authorized auditor decrypts the disclosed intent and exports a signed
+compliance report.
+
+<p align="center">
+  <img src="./assets/screenshots/landing.png" alt="CTIN demo" width="100%" />
+</p>
+
+Watch the video: add your uploaded video link here.
+
 ## Problem
 
 Every DAO, crypto fund, stablecoin issuer, and tokenized asset manager has a treasury. The
@@ -87,6 +101,39 @@ Auditor ─ authorized by an institution ─▶ decrypt disclosed intents ─▶
 2. **Net** — the operator or runner calls `closeBatch`, then decrypts the encrypted buy and sell totals off-chain to obtain the net amount and direction.
 3. **Execute** — `executeSettlement` pulls the net from the Safe through the module and swaps it on Uniswap; the batch becomes `Settled` and emits `BatchExecuted`.
 4. **Disclose** — an institution calls `authorizeAuditor`; that auditor then decrypts exactly the intents disclosed to it and exports a signed compliance report.
+
+## The application
+
+Four consoles, all on the magma-themed front end, running against the live Sepolia deployment.
+
+**Institution console** — compose an encrypted intent (direction, asset, amount), submit it into the
+open batch, and decrypt your own confidential receipts. The amount is encrypted on the device before
+it reaches the chain.
+
+<p align="center">
+  <img src="./assets/screenshots/institution.png" alt="Institution console" width="100%" />
+</p>
+
+**Operator console** — drive the batch lifecycle: open a batch, close it to start netting, and settle
+or execute it.
+
+<p align="center">
+  <img src="./assets/screenshots/operator.png" alt="Operator console" width="100%" />
+</p>
+
+**Batch explorer** — the public view. Everyone sees one netted footprint per batch and the settlement
+status, never who traded or how much.
+
+<p align="center">
+  <img src="./assets/screenshots/explorer.png" alt="Batch explorer" width="100%" />
+</p>
+
+**Auditor console** — an institution authorizes an auditor address; that auditor then decrypts exactly
+the intents disclosed to it and exports a wallet-signed compliance report. No one else can read them.
+
+<p align="center">
+  <img src="./assets/screenshots/auditor.png" alt="Auditor console" width="100%" />
+</p>
 
 ## Contracts API
 
