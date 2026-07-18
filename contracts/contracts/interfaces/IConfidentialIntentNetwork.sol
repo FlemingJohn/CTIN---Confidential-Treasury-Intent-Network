@@ -21,6 +21,13 @@ interface IConfidentialIntentNetwork {
     );
     event BatchClosed(uint256 indexed batchId);
     event BatchSettled(uint256 indexed batchId, bytes32 settlementReference);
+    event BatchExecuted(
+        uint256 indexed batchId,
+        address assetIn,
+        address assetOut,
+        uint256 amountIn,
+        uint256 amountOut
+    );
     event AuditorAuthorized(address indexed institution, address indexed auditor);
     event AuditorRevoked(address indexed institution, address indexed auditor);
 
@@ -36,6 +43,21 @@ interface IConfidentialIntentNetwork {
     function closeBatch(uint256 batchId) external;
 
     function settleBatch(uint256 batchId, bytes32 settlementReference) external;
+
+    function executeSettlement(
+        uint256 batchId,
+        address safe,
+        address assetIn,
+        address assetOut,
+        uint256 netAmountIn,
+        uint256 minimumAmountOut,
+        address recipient,
+        bytes32 settlementReference
+    ) external returns (uint256 amountOut);
+
+    function setExecutionAdapter(address adapter) external;
+
+    function setSettlementModule(address module) external;
 
     function authorizeAuditor(address auditor) external;
 
