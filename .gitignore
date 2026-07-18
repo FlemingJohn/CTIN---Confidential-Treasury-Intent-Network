@@ -19,3 +19,5 @@ videos/ctin-demo/transcript.json
 
 videos/ctin-film/output/
 videos/ctin-film/public/demo.mp4
+videos/ctin-film/public/audio/
+videos/ctin-film/public/beats.json
