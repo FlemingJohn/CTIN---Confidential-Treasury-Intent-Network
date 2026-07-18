@@ -1,0 +1,9 @@
+{
+  "network": "sepolia",
+  "intentNetwork": "0xd304B5eA5f5817CdF87a7EA3FD699295A61a7a29",
+  "disclosureRegistry": "0x1D88027319d5A71E8d94AdDf6957A9A5D3F78aE9",
+  "safeModule": "0x656bA351cA00B782df72A622FB9F7c103E9769bf",
+  "executionAdapter": "0x0CD82C57190fCC4314911b25DDBC4F727E5Acc32",
+  "uniswapSwapRouter": "0x3bFA4769FB09eefC5a80d6E87c3B9C650f7Ae48E",
+  "deploymentStartBlock": 11297548
+}
