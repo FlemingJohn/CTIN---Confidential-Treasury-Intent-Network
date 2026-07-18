@@ -255,6 +255,28 @@ UNISWAP_SWAP_ROUTER_ADDRESS   optional, defaults to the Uniswap v3 Sepolia route
 - Framework preset is detected as Next.js.
 - Add the frontend environment variables in the Vercel project settings.
 
+## What makes CTIN different
+
+Confidential netting into a single trade is no longer rare on its own. CTIN's edge is the
+institutional stack layered on top of it, which nothing else combines:
+
+- **Runs on your existing Safe.** A Safe module pulls the netted trade and executes it, so funds never move into a new vault and the multisig is untouched. Other confidential trading projects require depositing into their own custody contract.
+- **Real auditor selective disclosure.** An authorized auditor gains genuine Nox viewer access to an institution's intents, verifiable on-chain, and revocable for future intents. No other entrant offers compliance disclosure.
+- **Signed compliance reports.** An auditor decrypts only what was shared and exports a wallet-signed report for regulators and limited partners.
+- **Automated, off-chain runner.** Opens, closes, decrypts the net, and settles or executes without manual steps.
+- **Fair clearing price.** The net trade is slippage protected against a blended executed and oracle reference price.
+
+| Capability | CTIN | Own-vault swap tools | Governance tools |
+| --- | :--: | :--: | :--: |
+| Confidential netting to a single trade | Yes | Yes | No |
+| Executes from your existing Safe | Yes | No | No |
+| Automated Safe-module execution | Yes | No | No |
+| Real auditor decryption access | Yes | No | No |
+| Signed compliance report | Yes | No | No |
+
+The positioning: the only confidential DeFi layer that executes netted treasury trades from your
+existing Safe, with built-in, verifiable auditor compliance.
+
 ## Networks
 
 All contracts and the application run on Ethereum Sepolia. Live addresses are recorded in
