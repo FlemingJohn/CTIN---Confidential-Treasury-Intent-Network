@@ -22,4 +22,6 @@ export const config = {
   settlementSafe: process.env.SETTLEMENT_SAFE,
   settlementAssetIn: process.env.SETTLEMENT_ASSET_IN,
   settlementAssetOut: process.env.SETTLEMENT_ASSET_OUT,
+  referencePriceX18: BigInt(process.env.REFERENCE_PRICE_X18 ?? '0'),
+  slippageBps: BigInt(process.env.SLIPPAGE_BPS ?? '100'),
 };
