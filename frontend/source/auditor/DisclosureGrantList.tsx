@@ -8,8 +8,8 @@ import { useDisclosureGrants } from '@/source/auditor/useDisclosureGrants';
 export function DisclosureGrantList() {
   const { grants, revokeDisclosure, refresh } = useDisclosureGrants();
 
-  const handleRevoke = async (auditorAddress: string) => {
-    await revokeDisclosure(auditorAddress);
+  const handleRevoke = async () => {
+    await revokeDisclosure();
     await refresh();
   };
 
@@ -35,7 +35,7 @@ export function DisclosureGrantList() {
             </span>
             <span className="font-mono text-sm text-white">{grant.auditorAddress}</span>
           </div>
-          <ActionButton variant="outline" onClick={() => handleRevoke(grant.auditorAddress)}>
+          <ActionButton variant="outline" onClick={handleRevoke}>
             Revoke
           </ActionButton>
         </SurfacePanel>
