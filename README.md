@@ -27,10 +27,10 @@ only the net, then an authorized auditor decrypts the disclosed intent and expor
 compliance report.
 
 <p align="center">
-  <img src="./assets/screenshots/landing.png" alt="CTIN demo" width="100%" />
+  <video src="https://raw.githubusercontent.com/FlemingJohn/CTIN---Confidential-Treasury-Intent-Network/master/assets/ctin-demo.mp4" controls width="100%"></video>
 </p>
 
-Watch the video: add your uploaded video link here.
+If the embedded player does not appear on GitHub, [play or download the demo video](./assets/ctin-demo.mp4).
 
 ## Problem
 
