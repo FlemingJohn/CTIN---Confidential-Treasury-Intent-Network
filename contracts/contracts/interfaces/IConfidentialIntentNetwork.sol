@@ -13,9 +13,16 @@ interface IConfidentialIntentNetwork {
     }
 
     event BatchOpened(uint256 indexed batchId, uint256 openedAtTimestamp);
-    event IntentSubmitted(uint256 indexed batchId, address indexed institution, bool isBuy);
+    event IntentSubmitted(
+        uint256 indexed batchId,
+        address indexed institution,
+        bool isBuy,
+        bytes32 handle
+    );
     event BatchClosed(uint256 indexed batchId);
     event BatchSettled(uint256 indexed batchId, bytes32 settlementReference);
+    event AuditorAuthorized(address indexed institution, address indexed auditor);
+    event AuditorRevoked(address indexed institution, address indexed auditor);
 
     function openBatch() external returns (uint256 batchId);
 
@@ -29,6 +36,12 @@ interface IConfidentialIntentNetwork {
     function closeBatch(uint256 batchId) external;
 
     function settleBatch(uint256 batchId, bytes32 settlementReference) external;
+
+    function authorizeAuditor(address auditor) external;
+
+    function revokeAuditor() external;
+
+    function auditorOf(address institution) external view returns (address);
 
     function batchStatusOf(uint256 batchId) external view returns (BatchStatus);
 }
